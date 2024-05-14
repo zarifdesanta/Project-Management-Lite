@@ -1,0 +1,13 @@
+.project-item-card-container {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  width: 250px;
+  height: 100px;
+  padding: 10px;
+  color: var(--text-white);
+}
+
+.project-card-title {
+  font-size: 20px;
+  font-weight: 600;
+}
