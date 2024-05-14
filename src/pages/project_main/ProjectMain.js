@@ -7,6 +7,9 @@ import { saveData, loadData } from "../../utils/SaveLoad";
 import ProjectTodoItemCard from "../../components/ProjectTodoItemCard";
 import ProjectTaskCard from "../../components/ProjectTaskCard";
 
+//Todo: fix default value
+//Todo: fix default value after adding
+
 function ProjectMain() {
   const [projectList, setProjectList] = useState([]);
   const [model, setModel] = useState();
@@ -31,10 +34,10 @@ function ProjectMain() {
 
     updateProjectList(todoList);
 
-    setTaskName("");
-    setDetails("");
-    setPriority("");
-    setProgress("");
+    setTaskName("Title");
+    setDetails("Details");
+    setPriority("High");
+    setProgress("To do");
   };
 
   const updateProjectList = (todoList) => {

@@ -3,20 +3,31 @@ import "../styles/components/ProjectTodoItemCard.css";
 
 import { saveData } from "../utils/SaveLoad";
 
+//Todo: fix updateTask [fixed; not a good solution]
+//Todo: Then fix design
+
 function ProjectTodoItemCard(props) {
   const { todoModel, id, updateProjectList, todoList, setTodoList } = props;
 
-  const [progress, setProgress] = useState(todoModel?.progress);
-  const [priority, setPriority] = useState(todoModel?.priority);
-  const [details, setDetails] = useState(todoModel?.details);
-  const [taskName, setTaskName] = useState(todoModel?.taskName);
+  // const [progress, setProgress] = useState();
+  // const [priority, setPriority] = useState();
+  // const [details, setDetails] = useState();
+  // const [taskName, setTaskName] = useState();
 
-  const updateTask = () => {
-    todoModel.taskName = taskName;
-    todoModel.details = details;
-    todoModel.priority = priority;
-    todoModel.progress = progress;
+  const [updateDom, setUpdateDom] = useState();
 
+  const updateTask = (value, id) => {
+    if (id == 1) {
+      todoModel.taskName = value;
+    } else if (id == 2) {
+      todoModel.details = value;
+    } else if (id == 3) {
+      todoModel.priority = value;
+    } else if (id == 4) {
+      todoModel.progress = value;
+    }
+
+    setUpdateDom(value);
     setTodoList(todoList);
     updateProjectList(todoList);
   };
@@ -30,9 +41,9 @@ function ProjectTodoItemCard(props) {
     updateProjectList(copiedTodoList);
   };
 
-  useEffect(() => {
-    updateTask();
-  }, [taskName, details, priority, progress]);
+  // useEffect(() => {
+  //   updateTask();
+  // }, [taskName, details, priority, progress]);
 
   useEffect(() => {
     updateProjectList(todoList);
@@ -47,18 +58,24 @@ function ProjectTodoItemCard(props) {
       <input
         value={todoModel?.taskName}
         placeholder={todoModel?.taskName}
-        onChange={(e) => setTaskName(e.target.value)}
+        onChange={(e) => updateTask(e.target.value, 1)}
       ></input>
       <textarea
         value={todoModel?.details}
-        placeholder={todoModel?.taskName}
+        onChange={(e) => updateTask(e.target.value, 2)}
       ></textarea>
-      <select value={todoModel?.priority}>
+      <select
+        value={todoModel?.priority}
+        onChange={(e) => updateTask(e.target.value, 3)}
+      >
         <option>High</option>
         <option>Medium</option>
         <option>Low</option>
       </select>
-      <select value={todoModel?.progress}>
+      <select
+        value={todoModel?.progress}
+        onChange={(e) => updateTask(e.target.value, 4)}
+      >
         <option>To do</option>
         <option>In progress</option>
         <option>Done</option>
