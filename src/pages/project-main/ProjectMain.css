@@ -1,0 +1,84 @@
+.project-main-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sub-bg);
+  border-radius: 10px;
+  color: var(--text-white);
+  padding: 10px;
+  gap: 10px;
+
+  .sub-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .show-fields-button {
+      width: fit-content;
+      align-self: flex-end;
+      font-size: 16px;
+    }
+  }
+
+  .add-task-items {
+    display: flex;
+    justify-content: flex-start;
+
+    button {
+    }
+
+    .fields {
+      display: none;
+      grid-template-columns: 5% 20% 45% 10% 10% 10%;
+
+      /* gap: 10px; */
+      /* animation: animate-field-open 0.4s forwards; */
+
+      input {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-right: 10px;
+      }
+
+      select {
+        border-radius: 8px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .task-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    /* height: 94vh;
+    overflow-y: auto; */
+
+    .task-item-fields-container {
+      display: grid;
+      grid-template-columns: 5% 20% 45% 10% 10% 10%;
+      text-align: left;
+    }
+  }
+}
+
+@keyframes animate-field-open {
+  0% {
+    display: grid;
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes animate-field-close {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+    display: none;
+  }
+}

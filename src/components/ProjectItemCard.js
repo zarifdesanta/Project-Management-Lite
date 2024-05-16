@@ -11,7 +11,9 @@ function ProjectItemCard(props) {
         <div>
           <span className="project-card-title">{model?.title}</span>
         </div>
-        <div>{model?.starred}</div>
+        <div className="starred">
+          {model?.starred ? "Starred" : "Not Starred"}
+        </div>
       </div>
     </Link>
   );

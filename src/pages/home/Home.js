@@ -8,23 +8,6 @@ import { saveData, loadData, clearAll } from "../../utils/SaveLoad";
 
 function Home() {
   const [projectList, setProjectList] = useState([]);
-  const [title, setTitle] = useState("");
-  const [test, setTest] = useState(["hello", "getto", "gta"]);
-
-  const addNewProject = () => {
-    const projectModel = {
-      title: title,
-      starred: false,
-      todoList: [],
-    };
-
-    projectList.push(projectModel);
-    setProjectList(projectList);
-
-    saveData("projectList", projectList);
-    setTitle("");
-    // console.log(projectList);
-  };
 
   useEffect(() => {
     var loadedProjectList = loadData("projectList");
@@ -35,18 +18,22 @@ function Home() {
 
   return (
     <div className="home-container">
-      <div>
-        {/* <Link to={"/new-project"}>
-          <span>New Project +</span>
-        </Link> */}
+      <div className="left-items">
+        <Link to={"/new-project"}>
+          <button className="button blue-button">New Project +</button>
+        </Link>
 
-        <input onChange={(e) => setTitle(e.target.value)}></input>
-        <button onClick={() => addNewProject()}>Create New Project+</button>
-        <button onClick={() => clearAll()}>Delete All</button>
+        <div className="second-row">
+          <button className="button">Settings</button>
+          <button className="button orange-button">Starred</button>
+        </div>
+        <button className="button red-button" onClick={() => clearAll()}>
+          Delete All
+        </button>
       </div>
 
       <div className="project-item-card-grid-container">
-        {projectList.map((model, id) => {
+        {projectList.reverse().map((model, id) => {
           return <ProjectItemCard model={model} id={id}></ProjectItemCard>;
         })}
       </div>

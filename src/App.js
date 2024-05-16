@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home/Home";
-import ProjectMain from "./pages/project_main/ProjectMain";
-import NewProject from "./pages/new_project/NewProject";
+import ProjectMain from "./pages/project-main/ProjectMain";
+import NewProject from "./pages/new-project/NewProject";
 
 function App() {
   return (
@@ -15,8 +15,9 @@ function App() {
             path="/project-main/:id"
             element={<ProjectMain></ProjectMain>}
           ></Route>
+
           <Route
-            path="/new-project/:data"
+            path="/new-project"
             element={<NewProject></NewProject>}
           ></Route>
         </Routes>

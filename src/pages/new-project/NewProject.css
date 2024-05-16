@@ -1,0 +1,18 @@
+.new-project-container {
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--sub-bg);
+  gap: 20px;
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px auto;
+
+  .input-field {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+}

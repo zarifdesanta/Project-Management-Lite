@@ -6,11 +6,26 @@ body {
   padding: 10px;
   background-color: var(--sub-bg);
   display: flex;
-  justify-content: center;
-}
-
-.project-item-card-grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: start;
   gap: 10px;
+
+  .left-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+
+    .second-row {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+
+  .project-item-card-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 70%;
+  }
 }

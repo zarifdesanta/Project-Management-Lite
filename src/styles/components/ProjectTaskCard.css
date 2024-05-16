@@ -1,0 +1,47 @@
+.project-task-card-container {
+  background-color: var(--card-bg);
+  padding: 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 5% 20% 45% 10% 10% 10%;
+
+  input {
+    background-color: transparent;
+    border: none;
+    color: var(--text-white);
+    /* padding: 0px 8px; */
+    margin-right: 10px;
+    border-right: 1px solid var(--sub-bg);
+  }
+
+  textarea {
+    background-color: transparent;
+    border: none;
+    color: var(--text-white);
+    min-height: 50px;
+    resize: none;
+    /* padding: 4px 8px; */
+    margin-right: 10px;
+    border-right: 1px solid var(--sub-bg);
+  }
+
+  select {
+    content: "";
+    background-color: transparent;
+    border: none;
+    color: var(--text-white);
+    border-radius: 0px;
+    border-right: 1px solid var(--sub-bg);
+    /* padding: 0px 8px; */
+    margin-right: 10px;
+
+    option {
+      background-color: black;
+    }
+  }
+
+  button {
+    /* margin-left: 8px; */
+    /* width: 90%; */
+  }
+}

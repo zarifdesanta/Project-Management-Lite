@@ -1,0 +1,9 @@
+.add-task-modal-container {
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  height: 98vh;
+  width: 40%;
+  color: var(--text-white);
+  background-color: var(--sub-bg);
+}

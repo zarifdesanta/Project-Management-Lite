@@ -4,13 +4,71 @@ body {
 
 :root {
   --primary-blue: #0077d4;
-  --primary-white: white;
   --primary-red: red;
+  --primary-green: green;
+  --primary-orange: orange;
+  --primary-white: white;
   --text-white: white;
   --text-black: black;
   --main-bg: rgb(51, 51, 51);
   --sub-bg: rgb(43, 43, 43);
   --card-bg: rgb(20, 20, 20);
+}
+
+.general-container {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--sub-bg);
+  color: var(--text-white);
+}
+
+.checkbox {
+  appearance: none;
+  background-color: var(--primary-white);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  border: 2px solid var(--primary-white);
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-color: var(--primary-blue);
+}
+
+.button {
+  text-decoration: none;
+  width: 100%;
+  color: var(--text-white);
+  font-size: 14px;
+  background-color: var(--text-black);
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 0px solid transparent;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.blue-button {
+  background-color: var(--primary-blue);
+}
+
+.red-button {
+  background-color: var(--primary-red);
+}
+
+.green-button {
+  background-color: var(--primary-green);
+}
+
+.orange-button {
+  background-color: var(--primary-orange);
 }
 
 .container {

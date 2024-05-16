@@ -5,9 +5,22 @@
   height: 100px;
   padding: 10px;
   color: var(--text-white);
+  transition: all 0.25s;
+  position: relative;
+
+  .project-card-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .starred {
+    position: absolute;
+    text-align: right;
+    bottom: 10px;
+    right: 10px;
+  }
 }
 
-.project-card-title {
-  font-size: 20px;
-  font-weight: 600;
+.project-item-card-container:hover {
+  transform: scale(1.05);
 }
