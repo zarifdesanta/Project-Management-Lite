@@ -7,20 +7,23 @@ import { saveData, loadData } from "../../utils/SaveLoad";
 import ProjectTaskCard from "../../components/ProjectTaskCard";
 import AddTaskModal from "../../components/modals/AddTaskModal";
 
-//Todo: fix default value
-//Todo: fix default value after adding
+//Done: fix default value
+//Done: fix default value after adding
 //Todo: update design
 //Done: make a better solution for input handling -> using one useState()
 
 function ProjectMain() {
+  const { id } = useParams();
+
   const [projectList, setProjectList] = useState([]);
   const [model, setModel] = useState();
   const [todoModel, setTodoModel] = useState(initTodoModel);
   const [todoList, setTodoList] = useState([]);
-  const { id } = useParams();
 
   const [projectTitle, setProjectTitle] = useState(model?.title);
   const [isStarred, setIsStarred] = useState(model?.starred);
+
+  const [isViewInputField, setIsViewInputField] = useState(false);
 
   var initTodoModel = {
     issueId: "Id",
@@ -73,7 +76,19 @@ function ProjectMain() {
     saveData("projectList", projectList);
   };
 
-  const [isViewInputField, setIsViewInputField] = useState(false);
+  const handleSetIsStarred = (isStarred) => {
+    setIsStarred(isStarred);
+
+    var model = {
+      title: projectTitle,
+      starred: isStarred,
+      todoList: todoList,
+    };
+
+    projectList[id] = model;
+    setProjectList(projectList);
+    saveData("projectList", projectList);
+  };
 
   const toggleFields = () => {
     if (isViewInputField) {
@@ -111,7 +126,9 @@ function ProjectMain() {
             value={projectTitle}
             onChange={(e) => handleSetProjectTitle(e.target.value)}
           ></input>
-          <button>{isStarred ? "Starred" : "Not Starred"}</button>
+          <button onClick={() => handleSetIsStarred(!isStarred)}>
+            {isStarred ? "Starred" : "Not Starred"}
+          </button>
         </div>
         <div className="sub-container">
           <button
