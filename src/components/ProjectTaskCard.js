@@ -74,7 +74,7 @@ function ProjectTaskCard(props) {
         <option>Done</option>
       </select>
       <button className="button red-button" onClick={() => deleteTask(id)}>
-        Delete
+        D
       </button>
     </div>
   );

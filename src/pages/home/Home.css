@@ -6,7 +6,7 @@ body {
   padding: 10px;
   background-color: var(--sub-bg);
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 10px;
 
   .left-items {

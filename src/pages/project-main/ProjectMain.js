@@ -9,56 +9,59 @@ import AddTaskModal from "../../components/modals/AddTaskModal";
 
 //Todo: fix default value
 //Todo: fix default value after adding
+//Todo: update design
+//Done: make a better solution for input handling -> using one useState()
 
 function ProjectMain() {
   const [projectList, setProjectList] = useState([]);
   const [model, setModel] = useState();
+  const [todoModel, setTodoModel] = useState(initTodoModel);
   const [todoList, setTodoList] = useState([]);
   const { id } = useParams();
 
-  const [taskName, setTaskName] = useState("Title");
-  const [details, setDetails] = useState("Details");
-  const [priority, setPriority] = useState("High");
-  const [progress, setProgress] = useState("To do");
-  const [issueId, setIssueId] = useState();
-  const [task, setTask] = useState();
+  const [projectTitle, setProjectTitle] = useState(model?.title);
+  const [isStarred, setIsStarred] = useState(model?.starred);
+
+  var initTodoModel = {
+    issueId: "Id",
+    taskName: "Title",
+    details: "Details",
+    priority: "Priority",
+    progress: "Progress",
+  };
+
+  const handleSetTodoModel = (value, input) => {
+    setTodoModel((prevModel) => ({ ...prevModel, [input]: value }));
+  };
 
   const addNewTask = () => {
-    var todoModel = {
-      taskName: taskName,
-      details: details,
-      priority: priority,
-      progress: progress,
-      issueId: issueId,
-    };
+    if (todoModel == null) {
+      alert("Please insert input");
+      return;
+    }
 
     todoList.push(todoModel);
     setTodoList(todoList);
 
     updateProjectList(todoList);
 
-    setTaskName("Title");
-    setDetails("Details");
-    setPriority("High");
-    setProgress("To do");
-    setIssueId();
-
     setIsViewInputField(!isViewInputField);
+
+    setTodoModel(initTodoModel);
   };
 
-  // const handleSetTask = (value, id) => {
-  //   if (id == 1) {
-  //     todoModel.taskName = value;
-  //   } else if (id == 2) {
-  //     todoModel.details = value;
-  //   } else if (id == 3) {
-  //     todoModel.priority = value;
-  //   } else if (id == 4) {
-  //     todoModel.progress = value;
-  //   }
+  const handleSetProjectTitle = (e) => {
+    var model = {
+      title: e,
+      starred: isStarred,
+      todoList: todoList,
+    };
 
-  //   setTask(value);
-  // };
+    setProjectTitle(e);
+    projectList[id] = model;
+    setProjectList(projectList);
+    saveData("projectList", projectList);
+  };
 
   const updateProjectList = (todoList) => {
     //setting up updated porject list
@@ -70,11 +73,6 @@ function ProjectMain() {
     saveData("projectList", projectList);
   };
 
-  const [modal, setModal] = useState(false);
-  const openModal = () => {
-    setModal(!modal);
-  };
-
   const [isViewInputField, setIsViewInputField] = useState(false);
 
   const toggleFields = () => {
@@ -84,7 +82,7 @@ function ProjectMain() {
         "animate-field-open 0.4s forwards";
     } else {
       document.getElementById("fields").style.animation =
-        "animate-field-close 0.4s forwards";
+        "animate-field-close 0.25s forwards";
     }
   };
 
@@ -93,19 +91,28 @@ function ProjectMain() {
   }, [isViewInputField]);
 
   useEffect(() => {
+    setTodoModel(initTodoModel);
+
     var loadedProjectList = loadData("projectList");
     if (loadedProjectList) {
       setProjectList(loadedProjectList);
       setModel(loadedProjectList[id]);
+      setProjectTitle(loadedProjectList[id].title);
+      setIsStarred(loadedProjectList[id].starred);
       setTodoList(loadedProjectList[id].todoList);
     }
-    console.log(todoList);
   }, []);
 
   return (
     <>
       <div className="project-main-container">
-        <h3>{model?.title}</h3>
+        <div className="header">
+          <input
+            value={projectTitle}
+            onChange={(e) => handleSetProjectTitle(e.target.value)}
+          ></input>
+          <button>{isStarred ? "Starred" : "Not Starred"}</button>
+        </div>
         <div className="sub-container">
           <button
             className={
@@ -121,23 +128,27 @@ function ProjectMain() {
             <div className="fields" id="fields">
               <input
                 placeholder="Id"
-                onChange={(e) => setIssueId(e.target.value)}
+                onChange={(e) => handleSetTodoModel(e.target.value, "issueId")}
               ></input>
               <input
                 placeholder="Title"
-                onChange={(e) => setTaskName(e.target.value)}
+                onChange={(e) => handleSetTodoModel(e.target.value, "taskName")}
               ></input>
               <input
                 placeholder="Details"
-                onChange={(e) => setDetails(e.target.value)}
+                onChange={(e) => handleSetTodoModel(e.target.value, "details")}
               ></input>
-              <select onChange={(e) => setPriority(e.target.value)}>
+              <select
+                onChange={(e) => handleSetTodoModel(e.target.value, "priority")}
+              >
                 <option>High</option>
                 <option>Medium</option>
                 <option>Low</option>
               </select>
 
-              <select onChange={(e) => setProgress(e.target.value)}>
+              <select
+                onChange={(e) => handleSetTodoModel(e.target.value, "progress")}
+              >
                 <option>To do</option>
                 <option>In progress</option>
                 <option>Done</option>
@@ -150,14 +161,8 @@ function ProjectMain() {
               </button>
             </div>
           </div>
-          {/* <button
-            style={{ alignSelf: "end", width: "150px" }}
-            onClick={() => openModal()}
-          >
-            openModal
-          </button> */}
 
-          <div className="task-item-container">
+          <div className="">
             <div className="task-item-fields-container">
               <p>Id</p>
               <p>Title</p>
@@ -165,17 +170,19 @@ function ProjectMain() {
               <p>Priority</p>
               <p>Progress</p>
             </div>
-            {todoList.reverse().map((todoModel, id) => {
-              return (
-                <ProjectTaskCard
-                  todoModel={todoModel}
-                  id={id}
-                  todoList={todoList}
-                  setTodoList={setTodoList}
-                  updateProjectList={updateProjectList}
-                ></ProjectTaskCard>
-              );
-            })}
+            <div className="task-item-container">
+              {todoList.reverse().map((todoModel, id) => {
+                return (
+                  <ProjectTaskCard
+                    todoModel={todoModel}
+                    id={id}
+                    todoList={todoList}
+                    setTodoList={setTodoList}
+                    updateProjectList={updateProjectList}
+                  ></ProjectTaskCard>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

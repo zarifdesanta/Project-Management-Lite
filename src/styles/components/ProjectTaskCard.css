@@ -3,7 +3,7 @@
   padding: 10px;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 5% 20% 45% 10% 10% 10%;
+  grid-template-columns: 5% 20% 50% 10% 10% 5%;
 
   input {
     background-color: transparent;
@@ -12,6 +12,7 @@
     /* padding: 0px 8px; */
     margin-right: 10px;
     border-right: 1px solid var(--sub-bg);
+    font-size: 14px;
   }
 
   textarea {
@@ -23,6 +24,7 @@
     /* padding: 4px 8px; */
     margin-right: 10px;
     border-right: 1px solid var(--sub-bg);
+    font-size: 14px;
   }
 
   select {
@@ -34,6 +36,7 @@
     border-right: 1px solid var(--sub-bg);
     /* padding: 0px 8px; */
     margin-right: 10px;
+    font-size: 14px;
 
     option {
       background-color: black;
