@@ -28,23 +28,19 @@
   }
 
   select {
+    appearance: none;
     content: "";
     background-color: transparent;
     border: none;
     color: var(--text-white);
     border-radius: 0px;
     border-right: 1px solid var(--sub-bg);
-    /* padding: 0px 8px; */
+    padding: 0px 5px;
     margin-right: 10px;
     font-size: 14px;
 
     option {
       background-color: black;
     }
-  }
-
-  button {
-    /* margin-left: 8px; */
-    /* width: 90%; */
   }
 }

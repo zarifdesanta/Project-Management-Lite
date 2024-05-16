@@ -1,13 +1,12 @@
-body {
-}
-
 .home-container {
   border-radius: 10px;
   padding: 10px;
   background-color: var(--sub-bg);
   display: flex;
   justify-content: flex-start;
+  align-items: start;
   gap: 10px;
+  height: 90vh;
 
   .left-items {
     display: flex;
@@ -23,8 +22,11 @@ body {
   }
 
   .project-item-card-grid-container {
+    height: 90vh;
+    overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
     gap: 10px;
     width: 70%;
   }
