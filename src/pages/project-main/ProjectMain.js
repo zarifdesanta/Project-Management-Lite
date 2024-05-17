@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./ProjectMain.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { saveData, loadData } from "../../utils/SaveLoad";
 
-import ProjectTaskCard from "../../components/ProjectTaskCard";
+import ProjectTaskCard from "./components/ProjectTaskCard";
 import AddTaskModal from "../../components/modals/AddTaskModal";
+import AddNewTaskFields from "./components/AddNewTaskFields";
+import NewTaskButton from "./components/NewTaskButton";
 
 //Done: fix default value
 //Done: fix default value after adding
@@ -47,9 +49,7 @@ function ProjectMain() {
     setTodoList(todoList);
 
     updateProjectList(todoList);
-
     setIsViewInputField(!isViewInputField);
-
     setTodoModel(initTodoModel);
   };
 
@@ -90,20 +90,12 @@ function ProjectMain() {
     saveData("projectList", projectList);
   };
 
-  const toggleFields = () => {
-    if (isViewInputField) {
-      document.getElementById("fields").style.display = "grid";
-      document.getElementById("fields").style.animation =
-        "animate-field-open 0.4s forwards";
-    } else {
-      document.getElementById("fields").style.animation =
-        "animate-field-close 0.25s forwards";
-    }
+  const deleteThisProject = () => {
+    let copiedProjectList = [...projectList];
+    copiedProjectList.splice(id, 1);
+    setProjectList(copiedProjectList);
+    saveData("projectList", copiedProjectList);
   };
-
-  useEffect(() => {
-    toggleFields();
-  }, [isViewInputField]);
 
   useEffect(() => {
     setTodoModel(initTodoModel);
@@ -131,17 +123,36 @@ function ProjectMain() {
           </button>
         </div>
         <div className="sub-container">
-          <button
+          <Link className="show-fields-button" to={"/"}>
+            <button
+              onClick={() => deleteThisProject()}
+              className="button red-button"
+            >
+              Delete Project
+            </button>
+          </Link>
+
+          <NewTaskButton
+            isViewInputField={isViewInputField}
+            setIsViewInputField={setIsViewInputField}
+          ></NewTaskButton>
+
+          <AddNewTaskFields
+            handleSetTodoModel={handleSetTodoModel}
+            addNewTask={addNewTask}
+          ></AddNewTaskFields>
+
+          {/* <button
             className={
               isViewInputField
-                ? "button orange-button show-fields-button"
-                : "button blue-button show-fields-button"
+              ? "button orange-button show-fields-button"
+              : "button blue-button show-fields-button"
             }
             onClick={() => setIsViewInputField(!isViewInputField)}
-          >
+            >
             {isViewInputField ? "Hide -" : "New +"}
-          </button>
-          <div className="add-task-items">
+          </button> */}
+          {/* <div className="add-task-items">
             <div className="fields" id="fields">
               <input
                 placeholder="Id"
@@ -177,7 +188,7 @@ function ProjectMain() {
                 Add+
               </button>
             </div>
-          </div>
+          </div> */}
 
           <div className="">
             <div className="task-item-fields-container">

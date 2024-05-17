@@ -1,0 +1,29 @@
+.add-new-task-container {
+  .add-task-items {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: var(--border-bottom-divider);
+
+    .fields {
+      display: none;
+
+      grid-template-columns: 5% 20% 45% 10% 10% 10%;
+      padding-bottom: 10px;
+
+      /* gap: 10px; */
+      /* animation: animate-field-open 0.4s forwards; */
+
+      input {
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-right: 10px;
+      }
+
+      select {
+        border-radius: 8px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

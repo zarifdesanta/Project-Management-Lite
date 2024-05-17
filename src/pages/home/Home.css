@@ -26,8 +26,8 @@
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     gap: 10px;
     width: 70%;
+    grid-auto-rows: min-content;
   }
 }

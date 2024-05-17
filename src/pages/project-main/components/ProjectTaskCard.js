@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/components/ProjectTaskCard.css";
-
-import { saveData } from "../utils/SaveLoad";
+import "../../../styles/components/ProjectTaskCard.css";
 
 //Todo: fix updateTask [fixed; not a good solution]
 //Todo: Then fix design
