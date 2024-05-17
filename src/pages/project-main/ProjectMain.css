@@ -40,6 +40,23 @@
       align-self: flex-end;
       font-size: 16px;
     }
+
+    .option-button {
+      width: fit-content;
+      font-size: 16px;
+    }
+    .option-new-button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .options-item-container {
+      display: none;
+      justify-content: flex-start;
+      gap: 10px;
+      will-change: width;
+    }
   }
 
   .task-item-fields-container {
@@ -56,25 +73,5 @@
     gap: 10px;
     height: 75vh;
     overflow-y: auto;
-  }
-}
-
-@keyframes field-open-anim {
-  0% {
-    display: grid;
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes field-close-anim {
-  0% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-    display: none;
   }
 }

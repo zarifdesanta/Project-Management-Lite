@@ -8,16 +8,20 @@
   input {
     background-color: transparent;
     border: none;
+    border-radius: 10px;
     color: var(--text-white);
     /* padding: 0px 8px; */
     margin-right: 10px;
     border-right: 1px solid var(--sub-bg);
     font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
   }
 
   textarea {
     background-color: transparent;
     border: none;
+    border-radius: 10px;
     color: var(--text-white);
     min-height: 50px;
     resize: none;
@@ -25,22 +29,34 @@
     margin-right: 10px;
     border-right: 1px solid var(--sub-bg);
     font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
   }
 
   select {
-    appearance: none;
     content: "";
     background-color: transparent;
     border: none;
+    border-radius: 10px !important;
     color: var(--text-white);
     border-radius: 0px;
     border-right: 1px solid var(--sub-bg);
     padding: 0px 5px;
     margin-right: 10px;
     font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
 
     option {
       background-color: black;
     }
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover {
+    /* color: rgb(219, 219, 219); */
+    transform: scale(1.01);
+    border: 1px solid white;
   }
 }

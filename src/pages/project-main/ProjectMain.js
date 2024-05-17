@@ -26,6 +26,7 @@ function ProjectMain() {
   const [isStarred, setIsStarred] = useState(model?.starred);
 
   const [isViewInputField, setIsViewInputField] = useState(false);
+  const [isViewOptionsField, setIsViewOptionsField] = useState(false);
 
   var initTodoModel = {
     issueId: "Id",
@@ -97,6 +98,21 @@ function ProjectMain() {
     saveData("projectList", copiedProjectList);
   };
 
+  const toggleOptions = () => {
+    if (isViewOptionsField) {
+      document.getElementById("options").style.display = "flex";
+      document.getElementById("options").style.animation =
+        "field-open-anim 0.4s forwards";
+    } else {
+      document.getElementById("options").style.animation =
+        "field-close-anim 0.25s forwards";
+    }
+  };
+
+  useEffect(() => {
+    toggleOptions();
+  }, [isViewOptionsField]);
+
   useEffect(() => {
     setTodoModel(initTodoModel);
 
@@ -123,19 +139,36 @@ function ProjectMain() {
           </button>
         </div>
         <div className="sub-container">
-          <Link className="show-fields-button" to={"/"}>
+          <div className="option-new-button-container">
             <button
-              onClick={() => deleteThisProject()}
-              className="button red-button"
+              className="button option-button"
+              onClick={() => setIsViewOptionsField(!isViewOptionsField)}
             >
-              Delete Project
+              Options
             </button>
-          </Link>
 
-          <NewTaskButton
-            isViewInputField={isViewInputField}
-            setIsViewInputField={setIsViewInputField}
-          ></NewTaskButton>
+            <NewTaskButton
+              isViewInputField={isViewInputField}
+              setIsViewInputField={setIsViewInputField}
+            ></NewTaskButton>
+          </div>
+
+          <div className="options-item-container" id="options">
+            <Link className="" style={{ width: "100%" }} to={"/"}>
+              <button
+                className="button red-button"
+                onClick={() => deleteThisProject()}
+              >
+                Delete Project
+              </button>
+            </Link>
+            <button
+              className="button orange-button"
+              onClick={() => handleSetIsStarred(!isStarred)}
+            >
+              {isStarred ? "Starred" : "Not Starred"}
+            </button>
+          </div>
 
           <AddNewTaskFields
             handleSetTodoModel={handleSetTodoModel}

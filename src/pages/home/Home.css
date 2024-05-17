@@ -13,6 +13,7 @@
     flex-direction: column;
     gap: 10px;
     width: 30%;
+    color: var(--text-white);
 
     .second-row {
       display: flex;
@@ -28,6 +29,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     width: 70%;
-    grid-auto-rows: min-content;
+    grid-auto-rows: max-content;
   }
 }

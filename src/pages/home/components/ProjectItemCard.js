@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/components/ProjectItemCard.css";
+import "../../../styles/components/ProjectItemCard.css";
 import { Link } from "react-router-dom";
 
 function ProjectItemCard(props) {

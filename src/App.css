@@ -96,3 +96,22 @@ body {
   margin: 0px auto;
   padding: 10px;
 }
+
+@keyframes field-open-anim {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes field-close-anim {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+    display: none;
+  }
+}
