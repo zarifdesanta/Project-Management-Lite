@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../../styles/components/AddNewProjectFields.css";
 
 import { Link } from "react-router-dom";
-import { loadData, saveData } from "../../../utils/SaveLoad";
+import { loadData, saveData } from "../../../utils/Common";
 
 function AddNewProjectFields(props) {
   const { setIsViewAddProjectField, projectList, setProjectList } = props;

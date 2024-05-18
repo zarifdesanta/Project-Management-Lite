@@ -1,23 +1,14 @@
 import React, { useEffect } from "react";
 
+import { toggleView } from "../../../utils/Common";
+
 function NewTaskButton(props) {
   //   const [isViewInputField, setIsViewInputField] = useState(false);
 
   const { isViewInputField, setIsViewInputField } = props;
 
-  const toggleFields = () => {
-    if (isViewInputField) {
-      document.getElementById("fields").style.display = "grid";
-      document.getElementById("fields").style.animation =
-        "field-open-anim 0.4s forwards";
-    } else {
-      document.getElementById("fields").style.animation =
-        "field-close-anim 0.25s forwards";
-    }
-  };
-
   useEffect(() => {
-    toggleFields();
+    toggleView(isViewInputField, "fields", "grid");
   }, [isViewInputField]);
 
   return (

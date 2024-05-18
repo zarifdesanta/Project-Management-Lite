@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./ProjectMain.css";
 import { Link, useParams } from "react-router-dom";
 
-import { saveData, loadData } from "../../utils/SaveLoad";
+import { toggleView, saveData, loadData } from "../../utils/Common";
 
 import ProjectTaskCard from "./components/ProjectTaskCard";
-import AddTaskModal from "../../components/modals/AddTaskModal";
 import AddNewTaskFields from "./components/AddNewTaskFields";
 import NewTaskButton from "./components/NewTaskButton";
 
 //Done: fix default value
 //Done: fix default value after adding
 //Todo: update design
+//Todo: title and starred method can be improved
 //Done: make a better solution for input handling -> using one useState()
 
 function ProjectMain() {
@@ -98,19 +98,8 @@ function ProjectMain() {
     saveData("projectList", copiedProjectList);
   };
 
-  const toggleOptions = () => {
-    if (isViewOptionsField) {
-      document.getElementById("options").style.display = "flex";
-      document.getElementById("options").style.animation =
-        "field-open-anim 0.4s forwards";
-    } else {
-      document.getElementById("options").style.animation =
-        "field-close-anim 0.25s forwards";
-    }
-  };
-
   useEffect(() => {
-    toggleOptions();
+    toggleView(isViewOptionsField, "options", "flex");
   }, [isViewOptionsField]);
 
   useEffect(() => {
@@ -141,10 +130,14 @@ function ProjectMain() {
         <div className="sub-container">
           <div className="option-new-button-container">
             <button
-              className="button option-button"
+              className={
+                isViewOptionsField
+                  ? "button orange-button option-button"
+                  : "button option-button"
+              }
               onClick={() => setIsViewOptionsField(!isViewOptionsField)}
             >
-              Options
+              {isViewOptionsField ? "Options -" : "Options"}
             </button>
 
             <NewTaskButton

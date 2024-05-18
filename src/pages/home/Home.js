@@ -6,7 +6,7 @@ import ProjectItemCard from "./components/ProjectItemCard";
 import AddNewProjectFields from "./components/AddNewProjectFields";
 import NewProjectButton from "./components/NewProjectButton";
 
-import { saveData, loadData, clearAll } from "../../utils/SaveLoad";
+import { loadData, clearAll } from "../../utils/Common";
 
 //Todo: reset input field after creating a project
 

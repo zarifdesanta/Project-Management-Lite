@@ -34,7 +34,10 @@ function AddNewTaskFields(props) {
             <option>In progress</option>
             <option>Done</option>
           </select>
-          <button className="button blue-button" onClick={() => addNewTask()}>
+          <button
+            className="button blue-button fit-content"
+            onClick={() => addNewTask()}
+          >
             Add+
           </button>
         </div>

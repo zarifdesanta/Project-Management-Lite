@@ -1,21 +1,12 @@
 import React, { useEffect } from "react";
 
+import { toggleView } from "../../../utils/Common";
+
 function NewProjectButton(props) {
   const { isViewAddProjectField, setIsViewAddProjectField } = props;
 
-  const toggleAddProject = () => {
-    if (isViewAddProjectField) {
-      document.getElementById("addNewProjectField").style.display = "flex";
-      document.getElementById("addNewProjectField").style.animation =
-        "field-open-anim 0.4s forwards";
-    } else {
-      document.getElementById("addNewProjectField").style.animation =
-        "field-close-anim 0.25s forwards";
-    }
-  };
-
   useEffect(() => {
-    toggleAddProject();
+    toggleView(isViewAddProjectField, "addNewProjectField", "flex");
   }, [isViewAddProjectField]);
 
   return (

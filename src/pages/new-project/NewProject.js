@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./NewProject.css";
 
 import { Link } from "react-router-dom";
-import { loadData, saveData } from "../../utils/SaveLoad";
+import { loadData, saveData } from "../../utils/Common";
 
 function NewProject() {
   const [projectList, setProjectList] = useState([]);

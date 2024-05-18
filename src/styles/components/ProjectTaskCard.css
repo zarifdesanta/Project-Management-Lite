@@ -8,7 +8,7 @@
   input {
     background-color: transparent;
     border: none;
-    border-radius: 10px;
+
     color: var(--text-white);
     /* padding: 0px 8px; */
     margin-right: 10px;
@@ -21,7 +21,7 @@
   textarea {
     background-color: transparent;
     border: none;
-    border-radius: 10px;
+
     color: var(--text-white);
     min-height: 50px;
     resize: none;
@@ -37,9 +37,7 @@
     content: "";
     background-color: transparent;
     border: none;
-    border-radius: 10px !important;
     color: var(--text-white);
-    border-radius: 0px;
     border-right: 1px solid var(--sub-bg);
     padding: 0px 5px;
     margin-right: 10px;
@@ -58,5 +56,6 @@
     /* color: rgb(219, 219, 219); */
     transform: scale(1.01);
     border: 1px solid white;
+    border-radius: 10px;
   }
 }

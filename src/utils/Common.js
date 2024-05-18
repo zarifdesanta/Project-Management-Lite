@@ -12,3 +12,14 @@ export const clearAll = () => {
   localStorage.clear();
   // console.log("all cleared");
 };
+
+export const toggleView = (isView, id, display) => {
+  if (isView) {
+    document.getElementById(id).style.display = display;
+    document.getElementById(id).style.animation =
+      "field-open-anim 0.4s forwards";
+  } else {
+    document.getElementById(id).style.animation =
+      "field-close-anim 0.25s forwards";
+  }
+};
