@@ -36,6 +36,26 @@ function ProjectTaskCard(props) {
     updateProjectList(copiedTodoList);
   };
 
+  const handleProgressColorClass = (value) => {
+    if (value == "Done") {
+      return "done";
+    } else if (value == "In progress") {
+      return "in-progress";
+    } else {
+      return "todo";
+    }
+  };
+
+  const handlePriorityColorClass = (value) => {
+    if (value == "Low") {
+      return "low";
+    } else if (value == "Medium") {
+      return "medium";
+    } else {
+      return "high";
+    }
+  };
+
   useEffect(() => {
     updateProjectList(todoList);
   }, [todoList]);
@@ -57,6 +77,7 @@ function ProjectTaskCard(props) {
       ></textarea>
       <select
         value={todoModel?.priority}
+        className={handlePriorityColorClass(todoModel?.priority)}
         onChange={(e) => updateTask(e.target.value, 3)}
       >
         <option>High</option>
@@ -65,6 +86,7 @@ function ProjectTaskCard(props) {
       </select>
       <select
         value={todoModel?.progress}
+        className={handleProgressColorClass(todoModel?.progress)}
         onChange={(e) => updateTask(e.target.value, 4)}
       >
         <option>To do</option>

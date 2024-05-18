@@ -4,6 +4,7 @@
   background-color: var(--sub-bg);
   display: flex;
   justify-content: flex-start;
+  flex-direction: row;
   align-items: start;
   gap: 10px;
   height: 90vh;
@@ -30,5 +31,43 @@
     gap: 10px;
     width: 70%;
     grid-auto-rows: max-content;
+    overflow-x: hidden;
+
+    .title {
+      color: var(--text-white);
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .home-container .left-items {
+    width: 100%;
+  }
+  .home-container .project-item-card-grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+
+    .title {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-container .project-item-card-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home-container .project-item-card-grid-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

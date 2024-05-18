@@ -7,6 +7,7 @@ import { toggleView, saveData, loadData } from "../../utils/Common";
 import ProjectTaskCard from "./components/ProjectTaskCard";
 import AddNewTaskFields from "./components/AddNewTaskFields";
 import NewTaskButton from "./components/NewTaskButton";
+import OptionsButton from "./components/OptionsButton";
 
 //Done: fix default value
 //Done: fix default value after adding
@@ -54,6 +55,16 @@ function ProjectMain() {
     setTodoModel(initTodoModel);
   };
 
+  const updateProjectList = (todoList) => {
+    //setting up updated porject list
+
+    model.todoList = todoList;
+    setModel(model);
+    projectList[id] = model;
+    setProjectList(projectList);
+    saveData("projectList", projectList);
+  };
+
   const handleSetProjectTitle = (e) => {
     var model = {
       title: e,
@@ -62,16 +73,6 @@ function ProjectMain() {
     };
 
     setProjectTitle(e);
-    projectList[id] = model;
-    setProjectList(projectList);
-    saveData("projectList", projectList);
-  };
-
-  const updateProjectList = (todoList) => {
-    //setting up updated porject list
-
-    model.todoList = todoList;
-    setModel(model);
     projectList[id] = model;
     setProjectList(projectList);
     saveData("projectList", projectList);
@@ -97,10 +98,6 @@ function ProjectMain() {
     setProjectList(copiedProjectList);
     saveData("projectList", copiedProjectList);
   };
-
-  useEffect(() => {
-    toggleView(isViewOptionsField, "options", "flex");
-  }, [isViewOptionsField]);
 
   useEffect(() => {
     setTodoModel(initTodoModel);
@@ -129,16 +126,10 @@ function ProjectMain() {
         </div>
         <div className="sub-container">
           <div className="option-new-button-container">
-            <button
-              className={
-                isViewOptionsField
-                  ? "button orange-button option-button"
-                  : "button option-button"
-              }
-              onClick={() => setIsViewOptionsField(!isViewOptionsField)}
-            >
-              {isViewOptionsField ? "Options -" : "Options"}
-            </button>
+            <OptionsButton
+              isViewOptionsField={isViewOptionsField}
+              setIsViewOptionsField={setIsViewOptionsField}
+            ></OptionsButton>
 
             <NewTaskButton
               isViewInputField={isViewInputField}
@@ -167,54 +158,6 @@ function ProjectMain() {
             handleSetTodoModel={handleSetTodoModel}
             addNewTask={addNewTask}
           ></AddNewTaskFields>
-
-          {/* <button
-            className={
-              isViewInputField
-              ? "button orange-button show-fields-button"
-              : "button blue-button show-fields-button"
-            }
-            onClick={() => setIsViewInputField(!isViewInputField)}
-            >
-            {isViewInputField ? "Hide -" : "New +"}
-          </button> */}
-          {/* <div className="add-task-items">
-            <div className="fields" id="fields">
-              <input
-                placeholder="Id"
-                onChange={(e) => handleSetTodoModel(e.target.value, "issueId")}
-              ></input>
-              <input
-                placeholder="Title"
-                onChange={(e) => handleSetTodoModel(e.target.value, "taskName")}
-              ></input>
-              <input
-                placeholder="Details"
-                onChange={(e) => handleSetTodoModel(e.target.value, "details")}
-              ></input>
-              <select
-                onChange={(e) => handleSetTodoModel(e.target.value, "priority")}
-              >
-                <option>High</option>
-                <option>Medium</option>
-                <option>Low</option>
-              </select>
-
-              <select
-                onChange={(e) => handleSetTodoModel(e.target.value, "progress")}
-              >
-                <option>To do</option>
-                <option>In progress</option>
-                <option>Done</option>
-              </select>
-              <button
-                className="button blue-button"
-                onClick={() => addNewTask()}
-              >
-                Add+
-              </button>
-            </div>
-          </div> */}
 
           <div className="">
             <div className="task-item-fields-container">

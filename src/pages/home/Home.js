@@ -59,6 +59,7 @@ function Home() {
       </div>
 
       <div className="project-item-card-grid-container">
+        <p className="title">All Projects</p>
         {projectList.map((model, id) => {
           return <ProjectItemCard model={model} id={id}></ProjectItemCard>;
         })}

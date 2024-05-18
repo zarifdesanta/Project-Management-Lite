@@ -6,7 +6,7 @@ function ProjectItemCard(props) {
   const { id, model } = props;
 
   return (
-    <Link to={"/project-main/" + id}>
+    <Link to={"/project-main/" + id} style={{ textDecoration: "none" }}>
       <div className="project-item-card-container">
         <div>
           <span className="project-card-title">{model?.title}</span>

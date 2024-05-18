@@ -5,7 +5,7 @@ body {
 :root {
   --primary-blue: #0077d4;
   --primary-red: red;
-  --primary-green: green;
+  --primary-green: rgb(0, 216, 0);
   --primary-orange: orange;
   --primary-white: white;
   --text-white: white;
@@ -55,6 +55,10 @@ body {
 
 .checkbox:checked {
   background-color: var(--primary-blue);
+}
+
+.max-content {
+  width: max-content;
 }
 
 .button {
