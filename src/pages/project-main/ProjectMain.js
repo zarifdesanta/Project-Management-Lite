@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./ProjectMain.css";
 import { Link, useParams } from "react-router-dom";
 
-import { toggleView, saveData, loadData } from "../../utils/Common";
+import {
+  toggleView,
+  saveData,
+  loadData,
+  deleteDocFromFirestore,
+} from "../../utils/Common";
+import { getDocFromFirestore, updateDocInFirestore } from "../../utils/Common";
 
 import ProjectTaskCard from "./components/ProjectTaskCard";
 import AddNewTaskFields from "./components/AddNewTaskFields";
@@ -15,8 +21,9 @@ import OptionsButton from "./components/OptionsButton";
 //Todo: title and starred method can be improved
 //Done: make a better solution for input handling -> using one useState()
 
-function ProjectMain() {
+function ProjectMain(props) {
   const { id } = useParams();
+  const [firestoreId, setFirestoreId] = useState();
 
   const [projectList, setProjectList] = useState([]);
   const [model, setModel] = useState();
@@ -62,7 +69,8 @@ function ProjectMain() {
     setModel(model);
     projectList[id] = model;
     setProjectList(projectList);
-    saveData("projectList", projectList);
+    // saveData("projectList", projectList);
+    updateDocInFirestore(firestoreId, model);
   };
 
   const handleSetProjectTitle = (e) => {
@@ -75,7 +83,8 @@ function ProjectMain() {
     setProjectTitle(e);
     projectList[id] = model;
     setProjectList(projectList);
-    saveData("projectList", projectList);
+    // saveData("projectList", projectList);
+    updateDocInFirestore(firestoreId, model);
   };
 
   const handleSetIsStarred = (isStarred) => {
@@ -89,27 +98,45 @@ function ProjectMain() {
 
     projectList[id] = model;
     setProjectList(projectList);
-    saveData("projectList", projectList);
+    // saveData("projectList", projectList);
+    updateDocInFirestore(firestoreId, model);
   };
 
   const deleteThisProject = () => {
     let copiedProjectList = [...projectList];
     copiedProjectList.splice(id, 1);
     setProjectList(copiedProjectList);
-    saveData("projectList", copiedProjectList);
+    // saveData("projectList", copiedProjectList);
+    // updateDocInFirestore(firestoreId, model);
+    deleteDocFromFirestore(firestoreId);
   };
 
   useEffect(() => {
     setTodoModel(initTodoModel);
+    // console.log(model?.id);
+    // var loadedProjectList = loadData("projectList");
 
-    var loadedProjectList = loadData("projectList");
-    if (loadedProjectList) {
-      setProjectList(loadedProjectList);
-      setModel(loadedProjectList[id]);
-      setProjectTitle(loadedProjectList[id].title);
-      setIsStarred(loadedProjectList[id].starred);
-      setTodoList(loadedProjectList[id].todoList);
-    }
+    const getData = async () => {
+      const data = await getDocFromFirestore();
+      if (data) {
+        setFirestoreId(data[id].id);
+        setProjectList(data);
+        setModel(data[id]);
+        setProjectTitle(data[id].title);
+        setIsStarred(data[id].starred);
+        setTodoList(data[id].todoList);
+      }
+    };
+
+    getData();
+
+    // if (loadedProjectList) {
+    //   setProjectList(loadedProjectList);
+    //   setModel(loadedProjectList[id]);
+    //   setProjectTitle(loadedProjectList[id].title);
+    //   setIsStarred(loadedProjectList[id].starred);
+    //   setTodoList(loadedProjectList[id].todoList);
+    // }
   }, []);
 
   return (

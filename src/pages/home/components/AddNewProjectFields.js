@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../../styles/components/AddNewProjectFields.css";
 
 import { Link } from "react-router-dom";
-import { loadData, saveData } from "../../../utils/Common";
+import { loadData, saveData, addDocInFirestore } from "../../../utils/Common";
 
 function AddNewProjectFields(props) {
   const { setIsViewAddProjectField, projectList, setProjectList } = props;
@@ -20,7 +20,8 @@ function AddNewProjectFields(props) {
 
     projectList.push(projectModel);
     setProjectList(projectList);
-    saveData("projectList", projectList);
+    // saveData("projectList", projectList);
+    addDocInFirestore(projectModel);
     setTitle("");
     setStarred(false);
 

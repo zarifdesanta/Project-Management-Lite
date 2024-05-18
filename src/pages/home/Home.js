@@ -7,6 +7,7 @@ import AddNewProjectFields from "./components/AddNewProjectFields";
 import NewProjectButton from "./components/NewProjectButton";
 
 import { loadData, clearAll } from "../../utils/Common";
+import { getDocFromFirestore } from "../../utils/Common";
 
 //Todo: reset input field after creating a project
 
@@ -19,10 +20,15 @@ function Home() {
   }, [projectList]);
 
   useEffect(() => {
-    var loadedProjectList = loadData("projectList");
-    if (loadedProjectList) {
-      setProjectList(loadedProjectList);
-    }
+    // var loadedProjectList = loadData("projectList");
+    const getData = async () => {
+      const data = await getDocFromFirestore();
+      if (data) {
+        setProjectList(data);
+      }
+    };
+
+    getData();
   }, []);
 
   return (
@@ -53,7 +59,13 @@ function Home() {
         <p>Starred</p>
         {projectList.map((model, id) => {
           if (model.starred) {
-            return <ProjectItemCard model={model} id={id}></ProjectItemCard>;
+            return (
+              <ProjectItemCard
+                model={model}
+                id={id}
+                firestoreId={model.id}
+              ></ProjectItemCard>
+            );
           }
         })}
       </div>
@@ -61,7 +73,13 @@ function Home() {
       <div className="project-item-card-grid-container">
         <p className="title">All Projects</p>
         {projectList.map((model, id) => {
-          return <ProjectItemCard model={model} id={id}></ProjectItemCard>;
+          return (
+            <ProjectItemCard
+              model={model}
+              id={id}
+              firestoreId={model.id}
+            ></ProjectItemCard>
+          );
         })}
       </div>
     </div>

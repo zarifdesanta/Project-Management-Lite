@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../../styles/components/ProjectItemCard.css";
 import { Link } from "react-router-dom";
 
 function ProjectItemCard(props) {
-  const { id, model } = props;
+  const { id, model, firestoreId } = props;
 
   return (
     <Link to={"/project-main/" + id} style={{ textDecoration: "none" }}>
