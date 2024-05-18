@@ -1,25 +1,35 @@
 import React, { useEffect } from "react";
 
-import { toggleView } from "../../../utils/Common";
+import { toggleView } from "../../utils/Common";
 
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 
-function NewProjectButton(props) {
-  const { isViewAddProjectField, setIsViewAddProjectField } = props;
+function ToggleViewButton({
+  buttonName,
+  isView,
+  setIsView,
+  divId,
+  cssDisplay,
+  activeButtonClass = "orange-button",
+  notActiveButtonClass = "blue-button",
+}) {
+  //   const { buttonName, isView, setIsView, divId, cssDisplay } = props;
 
   useEffect(() => {
-    toggleView(isViewAddProjectField, "addNewProjectField", "flex");
-  }, [isViewAddProjectField]);
+    toggleView(isView, divId, cssDisplay);
+  }, [isView]);
 
   return (
     <button
       className={
-        isViewAddProjectField ? "button orange-button" : "button blue-button"
+        isView
+          ? "button " + activeButtonClass
+          : "button " + notActiveButtonClass
       }
-      onClick={() => setIsViewAddProjectField(!isViewAddProjectField)}
+      onClick={() => setIsView(!isView)}
     >
-      {isViewAddProjectField ? (
+      {isView ? (
         <>
           <span style={{ verticalAlign: "middle", marginRight: "4px" }}>
             Hide
@@ -29,7 +39,7 @@ function NewProjectButton(props) {
       ) : (
         <>
           <span style={{ verticalAlign: "middle", marginRight: "4px" }}>
-            New Project
+            {buttonName}
           </span>
           <FaPlus size={12} style={{ verticalAlign: "middle" }}></FaPlus>
         </>
@@ -38,4 +48,4 @@ function NewProjectButton(props) {
   );
 }
 
-export default NewProjectButton;
+export default ToggleViewButton;

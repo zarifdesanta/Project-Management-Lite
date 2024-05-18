@@ -3,7 +3,11 @@
   padding: 10px;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 5% 20% 50% 10% 10% 5%;
+  grid-template-columns: 6% 20% 50% 10% 11% 3%;
+
+  input:nth-child(1) {
+    padding-left: 0px;
+  }
 
   input {
     background-color: transparent;
@@ -49,6 +53,13 @@
       background-color: black;
       color: var(--text-white);
     }
+  }
+
+  button {
+    background-color: transparent;
+    box-shadow: none;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   input:hover,

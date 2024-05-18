@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../../../styles/components/ProjectTaskCard.css";
 
+import { FaTrash } from "react-icons/fa";
+
 //Todo: fix updateTask [fixed; not a good solution]
 //Todo: Then fix design
 
@@ -94,8 +96,8 @@ function ProjectTaskCard(props) {
         <option>In progress</option>
         <option>Done</option>
       </select>
-      <button className="button red-button " onClick={() => deleteTask(id)}>
-        D
+      <button className="button " onClick={() => deleteTask(id)}>
+        <FaTrash color="red" size={15}></FaTrash>
       </button>
     </div>
   );

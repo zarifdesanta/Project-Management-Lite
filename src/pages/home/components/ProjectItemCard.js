@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "../../../styles/components/ProjectItemCard.css";
 import { Link } from "react-router-dom";
 
+import { FaStar } from "react-icons/fa";
+
 function ProjectItemCard(props) {
   const { id, model, firestoreId } = props;
 
@@ -12,7 +14,11 @@ function ProjectItemCard(props) {
           <span className="project-card-title">{model?.title}</span>
         </div>
         <div className="starred">
-          {model?.starred ? "Starred" : "Not Starred"}
+          {model?.starred ? (
+            <FaStar color="orange"></FaStar>
+          ) : (
+            <FaStar color="white"></FaStar>
+          )}
         </div>
       </div>
     </Link>

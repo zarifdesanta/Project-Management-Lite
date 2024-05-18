@@ -5,6 +5,7 @@ import "./Home.css";
 import ProjectItemCard from "./components/ProjectItemCard";
 import AddNewProjectFields from "./components/AddNewProjectFields";
 import NewProjectButton from "./components/NewProjectButton";
+import ToggleViewButton from "../../components/shared/ToggleViewButton";
 
 import { loadData, clearAll } from "../../utils/Common";
 import { getDocFromFirestore } from "../../utils/Common";
@@ -38,10 +39,17 @@ function Home() {
           <button className="button blue-button">New Project +</button>
         </Link> */}
 
-        <NewProjectButton
+        {/* <NewProjectButton
           isViewAddProjectField={isViewAddProjectField}
           setIsViewAddProjectField={setIsViewAddProjectField}
-        ></NewProjectButton>
+        ></NewProjectButton> */}
+        <ToggleViewButton
+          buttonName="New Project"
+          isView={isViewAddProjectField}
+          setIsView={setIsViewAddProjectField}
+          divId="addNewProjectField"
+          cssDisplay="flex"
+        ></ToggleViewButton>
         <AddNewProjectFields
           setIsViewAddProjectField={setIsViewAddProjectField}
           projectList={projectList}

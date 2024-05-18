@@ -1,6 +1,8 @@
 import React from "react";
 import "../../../styles/components/AddNewTaskFields.css";
 
+import { FaPlus } from "react-icons/fa";
+
 function AddNewTaskFields(props) {
   const { handleSetTodoModel, addNewTask } = props;
   return (
@@ -15,10 +17,10 @@ function AddNewTaskFields(props) {
             placeholder="Title"
             onChange={(e) => handleSetTodoModel(e.target.value, "taskName")}
           ></input>
-          <input
+          <textarea
             placeholder="Details"
             onChange={(e) => handleSetTodoModel(e.target.value, "details")}
-          ></input>
+          ></textarea>
           <select
             onChange={(e) => handleSetTodoModel(e.target.value, "priority")}
           >
@@ -38,7 +40,10 @@ function AddNewTaskFields(props) {
             className="button blue-button fit-content"
             onClick={() => addNewTask()}
           >
-            Add+
+            <span style={{ verticalAlign: "middle", marginRight: "4px" }}>
+              New
+            </span>
+            <FaPlus size={12} style={{ verticalAlign: "middle" }}></FaPlus>
           </button>
         </div>
       </div>

@@ -14,6 +14,9 @@ import ProjectTaskCard from "./components/ProjectTaskCard";
 import AddNewTaskFields from "./components/AddNewTaskFields";
 import NewTaskButton from "./components/NewTaskButton";
 import OptionsButton from "./components/OptionsButton";
+import ToggleViewButton from "../../components/shared/ToggleViewButton";
+
+import { FaStar, FaGear } from "react-icons/fa";
 
 //Done: fix default value
 //Done: fix default value after adding
@@ -148,12 +151,16 @@ function ProjectMain(props) {
             onChange={(e) => handleSetProjectTitle(e.target.value)}
           ></input>
           <button onClick={() => handleSetIsStarred(!isStarred)}>
-            {isStarred ? "Starred" : "Not Starred"}
+            {isStarred ? (
+              <FaStar size={20} color="orange"></FaStar>
+            ) : (
+              <FaStar size={20} color="white"></FaStar>
+            )}
           </button>
         </div>
         <div className="sub-container">
           <div className="option-new-button-container">
-            <OptionsButton
+            {/* <OptionsButton
               isViewOptionsField={isViewOptionsField}
               setIsViewOptionsField={setIsViewOptionsField}
             ></OptionsButton>
@@ -161,7 +168,23 @@ function ProjectMain(props) {
             <NewTaskButton
               isViewInputField={isViewInputField}
               setIsViewInputField={setIsViewInputField}
-            ></NewTaskButton>
+            ></NewTaskButton> */}
+            <ToggleViewButton
+              buttonName="Options"
+              isView={isViewOptionsField}
+              setIsView={setIsViewOptionsField}
+              divId="options"
+              cssDisplay="flex"
+              notActiveButtonClass="primary-button"
+            ></ToggleViewButton>
+
+            <ToggleViewButton
+              buttonName="New"
+              isView={isViewInputField}
+              setIsView={setIsViewInputField}
+              divId="fields"
+              cssDisplay="grid"
+            ></ToggleViewButton>
           </div>
 
           <div className="options-item-container" id="options">
