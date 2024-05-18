@@ -58,7 +58,7 @@ body {
 }
 
 .max-content {
-  width: max-content;
+  width: max-content !important;
 }
 
 .button {

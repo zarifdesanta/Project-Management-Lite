@@ -75,6 +75,7 @@ function ProjectTaskCard(props) {
         value={todoModel?.details}
         onChange={(e) => updateTask(e.target.value, 2)}
       ></textarea>
+
       <select
         value={todoModel?.priority}
         className={handlePriorityColorClass(todoModel?.priority)}
@@ -93,7 +94,7 @@ function ProjectTaskCard(props) {
         <option>In progress</option>
         <option>Done</option>
       </select>
-      <button className="button red-button" onClick={() => deleteTask(id)}>
+      <button className="button red-button " onClick={() => deleteTask(id)}>
         D
       </button>
     </div>

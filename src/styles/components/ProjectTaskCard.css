@@ -10,7 +10,7 @@
     border: none;
 
     color: var(--text-white);
-    /* padding: 0px 8px; */
+    padding: 8px 10px;
     margin-right: 10px;
     border-right: 1px solid var(--sub-bg);
     font-size: 14px;
@@ -21,9 +21,9 @@
   textarea {
     background-color: transparent;
     border: none;
-
+    padding: 8px 10px;
     color: var(--text-white);
-    min-height: 50px;
+    min-height: 40px;
     resize: none;
     /* padding: 4px 8px; */
     margin-right: 10px;
@@ -39,7 +39,7 @@
     border: none;
     color: var(--text-white);
     border-right: 1px solid var(--sub-bg);
-    padding: 0px 5px;
+    padding: 8px 10px;
     margin-right: 10px;
     font-size: 14px;
     cursor: pointer;
@@ -105,4 +105,17 @@
     background-color: var(--primary-blue);
     border-radius: 10px;
   } */
+}
+
+@media screen and (max-width: 768px) {
+  .project-task-card-container {
+    grid-template-columns: 100%;
+    gap: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1200px) {
 }
