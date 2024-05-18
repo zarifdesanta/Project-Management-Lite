@@ -1,12 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { apiKey } from "../data/FirebaseData";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAUH5SbOvbAIc-SiRG6efh6xt5vQpzFeuU",
+  apiKey: apiKey,
   authDomain: "project-management-lite.firebaseapp.com",
   projectId: "project-management-lite",
   storageBucket: "project-management-lite.appspot.com",

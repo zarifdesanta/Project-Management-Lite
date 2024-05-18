@@ -9,6 +9,10 @@ import {
   doc,
 } from "firebase/firestore";
 
+import { collectionName } from "../data/FirebaseData";
+
+const fireStoreRef = collection(firestore, collectionName);
+
 export const saveData = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
   // console.log("saved", key);
@@ -23,8 +27,6 @@ export const clearAll = () => {
   localStorage.clear();
   // console.log("all cleared");
 };
-
-const fireStoreRef = collection(firestore, "projects");
 
 export const addDocInFirestore = (data) => {
   try {
@@ -48,7 +50,7 @@ export const getDocFromFirestore = async () => {
 
 export const updateDocInFirestore = async (id, dataModel) => {
   try {
-    const projectDoc = doc(firestore, "projects", id);
+    const projectDoc = doc(firestore, collectionName, id);
 
     console.log(projectDoc);
     return await updateDoc(projectDoc, dataModel);
@@ -59,7 +61,7 @@ export const updateDocInFirestore = async (id, dataModel) => {
 
 export const deleteDocFromFirestore = async (id) => {
   try {
-    const projectDoc = doc(firestore, "projects", id);
+    const projectDoc = doc(firestore, collectionName, id);
 
     console.log(projectDoc);
     return await deleteDoc(projectDoc);
