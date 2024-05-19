@@ -70,8 +70,8 @@ function ProjectMain(props) {
 
     model.todoList = todoList;
     setModel(model);
-    projectList[id] = model;
-    setProjectList(projectList);
+    // projectList[id] = model;
+    // setProjectList(projectList);
     // saveData("projectList", projectList);
     updateDocInFirestore(firestoreId, model);
   };
@@ -84,8 +84,8 @@ function ProjectMain(props) {
     };
 
     setProjectTitle(e);
-    projectList[id] = model;
-    setProjectList(projectList);
+    // projectList[id] = model;
+    // setProjectList(projectList);
     // saveData("projectList", projectList);
     updateDocInFirestore(firestoreId, model);
   };
@@ -99,8 +99,8 @@ function ProjectMain(props) {
       todoList: todoList,
     };
 
-    projectList[id] = model;
-    setProjectList(projectList);
+    // projectList[id] = model;
+    // setProjectList(projectList);
     // saveData("projectList", projectList);
     updateDocInFirestore(firestoreId, model);
   };
@@ -108,7 +108,7 @@ function ProjectMain(props) {
   const deleteThisProject = () => {
     let copiedProjectList = [...projectList];
     copiedProjectList.splice(id, 1);
-    setProjectList(copiedProjectList);
+    // setProjectList(copiedProjectList);
     // saveData("projectList", copiedProjectList);
     // updateDocInFirestore(firestoreId, model);
     deleteDocFromFirestore(firestoreId);
@@ -121,13 +121,18 @@ function ProjectMain(props) {
 
     const getData = async () => {
       const data = await getDocFromFirestore();
+
       if (data) {
-        setFirestoreId(data[id].id);
-        setProjectList(data);
-        setModel(data[id]);
-        setProjectTitle(data[id].title);
-        setIsStarred(data[id].starred);
-        setTodoList(data[id].todoList);
+        var cur = data.filter((model) => {
+          return model.id == id;
+        });
+        // console.log(cur[0]);
+        setFirestoreId(id);
+        // setProjectList(data);
+        setModel(cur[0]);
+        setProjectTitle(cur[0].title);
+        setIsStarred(cur[0].starred);
+        setTodoList(cur[0].todoList);
       }
     };
 

@@ -21,15 +21,15 @@ function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // console.log(auth?.currentUser?.email);
+  console.log(auth?.currentUser?.email);
 
-  const signInWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const signInWithGoogle = async () => {
+  //   try {
+  //     await signInWithPopup(auth, googleProvider);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const logout = async () => {
     try {
@@ -66,13 +66,13 @@ function Home() {
           isViewAddProjectField={isViewAddProjectField}
           setIsViewAddProjectField={setIsViewAddProjectField}
         ></NewProjectButton> */}
-        <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
+
+        {/* <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button onClick={signInWithGoogle}>Sign in with google</button>
-        <button onClick={logout}>Log out</button>
+        ></input> */}
+        {/* <button onClick={signInWithGoogle}>Sign in with google</button> */}
 
         <ToggleViewButton
           buttonName="New Project"
@@ -91,35 +91,48 @@ function Home() {
           <button className="button">Settings</button>
           <button className="button orange-button">Starred</button>
         </div>
-        <button className="button red-button" onClick={() => clearAll()}>
+        {/* <button className="button red-button" onClick={() => clearAll()}>
           Delete All
-        </button>
+        </button> */}
+        <Link to={"/"}>
+          <button className="button red-button" onClick={logout}>
+            Log out
+          </button>
+        </Link>
 
         <p>Starred</p>
-        {projectList.map((model, id) => {
-          if (model.starred) {
-            return (
-              <ProjectItemCard
-                model={model}
-                id={id}
-                firestoreId={model.id}
-              ></ProjectItemCard>
-            );
-          }
-        })}
+        {projectList
+          .filter((model) => {
+            return model.userId == auth?.currentUser?.uid;
+          })
+          .map((model) => {
+            if (model.starred) {
+              return (
+                <ProjectItemCard
+                  model={model}
+                  id={model.id}
+                  firestoreId={model.id}
+                ></ProjectItemCard>
+              );
+            }
+          })}
       </div>
 
       <div className="project-item-card-grid-container">
         <p className="title">All Projects</p>
-        {projectList.map((model, id) => {
-          return (
-            <ProjectItemCard
-              model={model}
-              id={id}
-              firestoreId={model.id}
-            ></ProjectItemCard>
-          );
-        })}
+        {projectList
+          .filter((model) => {
+            return model.userId == auth?.currentUser?.uid;
+          })
+          .map((model) => {
+            return (
+              <ProjectItemCard
+                model={model}
+                id={model.id}
+                firestoreId={model.id}
+              ></ProjectItemCard>
+            );
+          })}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import "../../../styles/components/AddNewProjectFields.css";
 
 import { Link } from "react-router-dom";
 import { loadData, saveData, addDocInFirestore } from "../../../utils/Common";
+import { auth } from "../../../utils/Firebase";
 
 function AddNewProjectFields(props) {
   const { setIsViewAddProjectField, projectList, setProjectList } = props;
@@ -13,6 +14,7 @@ function AddNewProjectFields(props) {
 
   const addNewProject = () => {
     const projectModel = {
+      userId: auth?.currentUser?.uid,
       title: title,
       starred: starred,
       todoList: [],
