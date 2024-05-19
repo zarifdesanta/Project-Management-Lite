@@ -9,12 +9,35 @@ import ToggleViewButton from "../../components/shared/ToggleViewButton";
 
 import { loadData, clearAll } from "../../utils/Common";
 import { getDocFromFirestore } from "../../utils/Common";
+import { auth, googleProvider } from "../../utils/Firebase";
+import { signInWithPopup, signOut } from "firebase/auth";
 
 //Todo: reset input field after creating a project
 
 function Home() {
   const [projectList, setProjectList] = useState([]);
   const [isViewAddProjectField, setIsViewAddProjectField] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // console.log(auth?.currentUser?.email);
+
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console(err);
+    }
+  };
 
   useEffect(() => {
     setProjectList(projectList);
@@ -43,6 +66,14 @@ function Home() {
           isViewAddProjectField={isViewAddProjectField}
           setIsViewAddProjectField={setIsViewAddProjectField}
         ></NewProjectButton> */}
+        <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
+        <input
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
+        <button onClick={signInWithGoogle}>Sign in with google</button>
+        <button onClick={logout}>Log out</button>
+
         <ToggleViewButton
           buttonName="New Project"
           isView={isViewAddProjectField}
