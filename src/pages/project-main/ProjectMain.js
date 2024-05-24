@@ -193,7 +193,7 @@ function ProjectMain(props) {
           </div>
 
           <div className="options-item-container" id="options">
-            <Link className="" style={{ width: "100%" }} to={"/"}>
+            <Link className="" style={{ width: "100%" }} to={"/home"}>
               <button
                 className="button red-button"
                 onClick={() => deleteThisProject()}

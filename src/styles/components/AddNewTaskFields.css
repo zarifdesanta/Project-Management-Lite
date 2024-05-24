@@ -54,7 +54,8 @@
     gap: 10px;
 
     input,
-    select {
+    select,
+    textarea {
       margin-right: 0px;
     }
   }

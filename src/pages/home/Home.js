@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
 
 import ProjectItemCard from "./components/ProjectItemCard";
@@ -13,6 +13,7 @@ import { auth, googleProvider } from "../../utils/Firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 
 //Todo: reset input field after creating a project
+//Todo: go to the newly created project main
 
 function Home() {
   const [projectList, setProjectList] = useState([]);
@@ -20,6 +21,8 @@ function Home() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   console.log(auth?.currentUser?.email);
 
@@ -34,6 +37,7 @@ function Home() {
   const logout = async () => {
     try {
       await signOut(auth);
+      navigate("/");
     } catch (err) {
       console(err);
     }
@@ -94,11 +98,10 @@ function Home() {
         {/* <button className="button red-button" onClick={() => clearAll()}>
           Delete All
         </button> */}
-        <Link to={"/"}>
-          <button className="button red-button" onClick={logout}>
-            Log out
-          </button>
-        </Link>
+
+        <button className="button red-button" onClick={logout}>
+          Log out
+        </button>
 
         <p>Starred</p>
         {projectList
