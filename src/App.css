@@ -10,9 +10,9 @@ body {
   --primary-white: white;
   --text-white: white;
   --text-black: black;
-  --main-bg: rgb(51, 51, 51);
-  --sub-bg: rgb(43, 43, 43);
-  --card-bg: rgb(20, 20, 20);
+  --card-bg: rgb(51, 51, 51);
+  --sub-bg: transparent;
+  --main-bg: rgb(20, 20, 20);
   --border-bottom-divider: 1px solid rgba(128, 128, 128, 0.226);
 }
 

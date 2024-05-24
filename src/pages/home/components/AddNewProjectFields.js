@@ -53,7 +53,7 @@ function AddNewProjectFields(props) {
           onChange={() => setStarred(!starred)}
         ></input>
       </div>
-      <Link to={"/"}>
+      <Link to={"/home"}>
         <button className="button blue-button" onClick={addNewProject}>
           Create
         </button>
