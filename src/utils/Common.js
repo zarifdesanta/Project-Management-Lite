@@ -11,7 +11,7 @@ import {
 
 import { collectionName } from "../data/FirebaseData";
 
-const fireStoreRef = collection(firestore, collectionName);
+export const fireStoreRef = collection(firestore, collectionName);
 
 export const saveData = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));

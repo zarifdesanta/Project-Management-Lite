@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../../../styles/components/AddNewProjectFields.css";
 
-import { Link } from "react-router-dom";
-import { loadData, saveData, addDocInFirestore } from "../../../utils/Common";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  loadData,
+  saveData,
+  addDocInFirestore,
+  getDocFromFirestore,
+} from "../../../utils/Common";
 import { auth } from "../../../utils/Firebase";
 
 function AddNewProjectFields(props) {
@@ -11,6 +16,8 @@ function AddNewProjectFields(props) {
   //   const [projectList, setProjectList] = useState([]);
   const [title, setTitle] = useState("");
   const [starred, setStarred] = useState(false);
+
+  const navigate = useNavigate();
 
   const addNewProject = () => {
     const projectModel = {
@@ -28,6 +35,15 @@ function AddNewProjectFields(props) {
     setStarred(false);
 
     setIsViewAddProjectField(false);
+
+    const getData = async () => {
+      const data = await getDocFromFirestore();
+      if (data) {
+        setProjectList(data);
+      }
+    };
+
+    getData();
   };
 
   useEffect(() => {
@@ -53,11 +69,10 @@ function AddNewProjectFields(props) {
           onChange={() => setStarred(!starred)}
         ></input>
       </div>
-      <Link to={"/home"}>
-        <button className="button blue-button" onClick={addNewProject}>
-          Create
-        </button>
-      </Link>
+
+      <button className="button blue-button" onClick={addNewProject}>
+        Create
+      </button>
     </div>
   );
 }

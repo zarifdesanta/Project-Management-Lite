@@ -13,7 +13,8 @@ import { auth, googleProvider } from "../../utils/Firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 
 //Todo: reset input field after creating a project
-//Todo: go to the newly created project main
+//Todo: add timestamp
+//Todo: filter based on timestamp (fixes sorting)
 
 function Home() {
   const [projectList, setProjectList] = useState([]);
@@ -25,14 +26,6 @@ function Home() {
   const navigate = useNavigate();
 
   console.log(auth?.currentUser?.email);
-
-  // const signInWithGoogle = async () => {
-  //   try {
-  //     await signInWithPopup(auth, googleProvider);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   const logout = async () => {
     try {
@@ -62,22 +55,6 @@ function Home() {
   return (
     <div className="home-container">
       <div className="left-items">
-        {/* <Link to={"/new-project"}>
-          <button className="button blue-button">New Project +</button>
-        </Link> */}
-
-        {/* <NewProjectButton
-          isViewAddProjectField={isViewAddProjectField}
-          setIsViewAddProjectField={setIsViewAddProjectField}
-        ></NewProjectButton> */}
-
-        {/* <input type="email" onChange={(e) => setEmail(e.target.value)}></input>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input> */}
-        {/* <button onClick={signInWithGoogle}>Sign in with google</button> */}
-
         <ToggleViewButton
           buttonName="New Project"
           isView={isViewAddProjectField}
@@ -95,9 +72,6 @@ function Home() {
           <button className="button">Settings</button>
           <button className="button orange-button">Starred</button>
         </div>
-        {/* <button className="button red-button" onClick={() => clearAll()}>
-          Delete All
-        </button> */}
 
         <button className="button red-button" onClick={logout}>
           Log out

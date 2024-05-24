@@ -70,9 +70,7 @@ function ProjectMain(props) {
 
     model.todoList = todoList;
     setModel(model);
-    // projectList[id] = model;
-    // setProjectList(projectList);
-    // saveData("projectList", projectList);
+
     updateDocInFirestore(firestoreId, model);
   };
 
@@ -84,9 +82,7 @@ function ProjectMain(props) {
     };
 
     setProjectTitle(e);
-    // projectList[id] = model;
-    // setProjectList(projectList);
-    // saveData("projectList", projectList);
+
     updateDocInFirestore(firestoreId, model);
   };
 
@@ -99,36 +95,28 @@ function ProjectMain(props) {
       todoList: todoList,
     };
 
-    // projectList[id] = model;
-    // setProjectList(projectList);
-    // saveData("projectList", projectList);
     updateDocInFirestore(firestoreId, model);
   };
 
   const deleteThisProject = () => {
     let copiedProjectList = [...projectList];
     copiedProjectList.splice(id, 1);
-    // setProjectList(copiedProjectList);
-    // saveData("projectList", copiedProjectList);
-    // updateDocInFirestore(firestoreId, model);
+
     deleteDocFromFirestore(firestoreId);
   };
 
   useEffect(() => {
     setTodoModel(initTodoModel);
-    // console.log(model?.id);
-    // var loadedProjectList = loadData("projectList");
 
     const getData = async () => {
       const data = await getDocFromFirestore();
 
       if (data) {
         var cur = data.filter((model) => {
-          return model.id == id;
+          return model?.id == id;
         });
-        // console.log(cur[0]);
+
         setFirestoreId(id);
-        // setProjectList(data);
         setModel(cur[0]);
         setProjectTitle(cur[0].title);
         setIsStarred(cur[0].starred);
@@ -137,14 +125,6 @@ function ProjectMain(props) {
     };
 
     getData();
-
-    // if (loadedProjectList) {
-    //   setProjectList(loadedProjectList);
-    //   setModel(loadedProjectList[id]);
-    //   setProjectTitle(loadedProjectList[id].title);
-    //   setIsStarred(loadedProjectList[id].starred);
-    //   setTodoList(loadedProjectList[id].todoList);
-    // }
   }, []);
 
   return (
@@ -165,15 +145,6 @@ function ProjectMain(props) {
         </div>
         <div className="sub-container">
           <div className="option-new-button-container">
-            {/* <OptionsButton
-              isViewOptionsField={isViewOptionsField}
-              setIsViewOptionsField={setIsViewOptionsField}
-            ></OptionsButton>
-
-            <NewTaskButton
-              isViewInputField={isViewInputField}
-              setIsViewInputField={setIsViewInputField}
-            ></NewTaskButton> */}
             <ToggleViewButton
               buttonName="Options"
               isView={isViewOptionsField}
