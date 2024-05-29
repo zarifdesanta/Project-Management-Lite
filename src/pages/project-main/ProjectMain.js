@@ -11,6 +11,7 @@ import {
 import { getDocFromFirestore, updateDocInFirestore } from "../../utils/Common";
 
 import ProjectTaskCard from "./components/ProjectTaskCard";
+import ProjectTaskCardModal from "./components/ProjectTaskCardModal";
 import AddNewTaskFields from "./components/AddNewTaskFields";
 import NewTaskButton from "./components/NewTaskButton";
 import OptionsButton from "./components/OptionsButton";
@@ -194,7 +195,7 @@ function ProjectMain(props) {
               <p>Progress</p>
             </div>
             <div className="task-item-container">
-              {todoList.reverse().map((todoModel, id) => {
+              {todoList.map((todoModel, id) => {
                 return (
                   <ProjectTaskCard
                     todoModel={todoModel}

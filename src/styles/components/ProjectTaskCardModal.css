@@ -1,0 +1,15 @@
+body {
+}
+
+.project-task-card-modal-container {
+  width: 50%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 0;
+}

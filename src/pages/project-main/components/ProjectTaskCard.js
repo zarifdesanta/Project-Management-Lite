@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../../styles/components/ProjectTaskCard.css";
 
 import { FaTrash } from "react-icons/fa";
+import ProjectTaskCardModal from "./ProjectTaskCardModal";
 
 //Todo: fix updateTask [fixed; not a good solution]
 //Todo: Then fix design
@@ -58,48 +59,87 @@ function ProjectTaskCard(props) {
     }
   };
 
+  const [modal, setModal] = useState(false);
+  function openModal() {
+    console.log("opening modal");
+    return (
+      <ProjectTaskCardModal
+        todoModel={todoModel}
+        id={id}
+        todoList={todoList}
+        setTodoList={setTodoList}
+        updateProjectList={updateProjectList}
+      ></ProjectTaskCardModal>
+    );
+  }
+
   useEffect(() => {
     updateProjectList(todoList);
   }, [todoList]);
 
-  return (
-    <div className="project-task-card-container">
-      <input
-        value={todoModel.issueId}
-        onChange={(e) => updateTask(e.target.value, 5)}
-      ></input>
-      <input
-        value={todoModel?.taskName}
-        placeholder={todoModel?.taskName}
-        onChange={(e) => updateTask(e.target.value, 1)}
-      ></input>
-      <textarea
-        value={todoModel?.details}
-        onChange={(e) => updateTask(e.target.value, 2)}
-      ></textarea>
+  useEffect(() => {
+    openModal();
+  }, [modal]);
 
-      <select
-        value={todoModel?.priority}
-        className={handlePriorityColorClass(todoModel?.priority)}
-        onChange={(e) => updateTask(e.target.value, 3)}
-      >
-        <option>High</option>
-        <option>Medium</option>
-        <option>Low</option>
-      </select>
-      <select
-        value={todoModel?.progress}
-        className={handleProgressColorClass(todoModel?.progress)}
-        onChange={(e) => updateTask(e.target.value, 4)}
-      >
-        <option>To do</option>
-        <option>In progress</option>
-        <option>Done</option>
-      </select>
-      <button className="button " onClick={() => deleteTask(id)}>
+  return (
+    <>
+      {modal ? (
+        <ProjectTaskCardModal
+          todoModel={todoModel}
+          id={id}
+          todoList={todoList}
+          setTodoList={setTodoList}
+          updateProjectList={updateProjectList}
+          modal={modal}
+          setModal={setModal}
+        ></ProjectTaskCardModal>
+      ) : (
+        <></>
+      )}
+      <div className="project-task-card-container">
+        <input
+          value={todoModel.issueId}
+          onClick={() => setModal(!modal)}
+          // onChange={(e) => updateTask(e.target.value, 5)}
+        ></input>
+        <input
+          value={todoModel?.taskName}
+          placeholder={todoModel?.taskName}
+          onClick={() => setModal(!modal)}
+          // onChange={(e) => updateTask(e.target.value, 1)}
+        ></input>
+        <textarea
+          value={todoModel?.details}
+          onClick={() => setModal(!modal)}
+          // onChange={(e) => updateTask(e.target.value, 2)}
+        ></textarea>
+
+        <select
+          value={todoModel?.priority}
+          className={handlePriorityColorClass(todoModel?.priority)}
+          onChange={(e) => updateTask(e.target.value, 3)}
+        >
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+        <select
+          value={todoModel?.progress}
+          className={handleProgressColorClass(todoModel?.progress)}
+          onChange={(e) => updateTask(e.target.value, 4)}
+        >
+          <option>To do</option>
+          <option>In progress</option>
+          <option>Done</option>
+        </select>
+        <button className="button " onClick={() => deleteTask(id)}>
+          <FaTrash color="red" size={15}></FaTrash>
+        </button>
+        {/* <button className="button " onClick={() => setModal(!modal)}>
         <FaTrash color="red" size={15}></FaTrash>
-      </button>
-    </div>
+      </button> */}
+      </div>
+    </>
   );
 }
 

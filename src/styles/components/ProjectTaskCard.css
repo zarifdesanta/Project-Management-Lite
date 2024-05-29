@@ -9,6 +9,19 @@
     padding-left: 0px;
   }
 
+  span {
+    background-color: transparent;
+    border: none;
+    align-self: center;
+    color: var(--text-white);
+    padding: 8px 10px;
+    margin-right: 10px;
+    border-right: 1px solid var(--main-bg);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
   input {
     background-color: transparent;
     border: none;
@@ -16,7 +29,7 @@
     color: var(--text-white);
     padding: 8px 10px;
     margin-right: 10px;
-    border-right: 1px solid var(--sub-bg);
+    border-right: 1px solid var(--main-bg);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.25s;
@@ -31,7 +44,7 @@
     resize: none;
     /* padding: 4px 8px; */
     margin-right: 10px;
-    border-right: 1px solid var(--sub-bg);
+    border-right: 1px solid var(--main-bg);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.25s;
@@ -42,7 +55,7 @@
     background-color: transparent;
     border: none;
     color: var(--text-white);
-    border-right: 1px solid var(--sub-bg);
+    border-right: 1px solid var(--main-bg);
     padding: 8px 10px;
     margin-right: 10px;
     font-size: 14px;
@@ -62,14 +75,13 @@
     padding-right: 8px;
   }
 
-  input:hover,
+  /* input:hover,
   textarea:hover,
   select:hover {
-    /* color: rgb(219, 219, 219); */
     transform: scale(1.01);
     border: 1px solid white;
     border-radius: 10px;
-  }
+  } */
 
   .done {
     color: var(--primary-green);
