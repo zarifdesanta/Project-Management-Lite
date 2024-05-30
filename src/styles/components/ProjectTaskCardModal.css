@@ -1,15 +1,85 @@
-body {
-}
-
-.project-task-card-modal-container {
-  width: 50%;
-  height: 100%;
+.project-task-card-modal-sub-container {
+  width: 800px;
+  height: 600px;
   padding: 10px;
   border-radius: 10px;
   background-color: var(--card-bg);
+  box-shadow: var(--shadow);
   position: absolute;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
-  right: 0;
-  top: 0;
+  margin: 0px auto;
+  z-index: 1000;
+  gap: 10px;
+
+  input {
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: var(--text-white);
+    padding: 8px 10px;
+
+    font-size: 14px;
+    cursor: pointer;
+    height: 10%;
+    transition: all 0.25s;
+  }
+
+  textarea {
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: var(--text-white);
+    padding: 8px 10px;
+
+    font-size: 14px;
+    cursor: pointer;
+    height: 50%;
+    transition: all 0.25s;
+  }
+
+  select {
+    content: "";
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: var(--text-white);
+    padding: 8px 10px;
+
+    font-size: 14px;
+    height: 10%;
+    cursor: pointer;
+    transition: all 0.25s;
+
+    option {
+      background-color: black;
+      color: var(--text-white);
+    }
+  }
+
+  button {
+    box-shadow: none;
+    /* height: 10%; */
+    border-radius: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: fit-content;
+  }
+
+  .delete-button {
+    background-color: var(--primary-red);
+  }
+
+  .save-button {
+    background-color: var(--primary-blue);
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    gap: 10px;
+  }
 }

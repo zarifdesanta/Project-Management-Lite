@@ -73,6 +73,12 @@ function ProjectTaskCard(props) {
     );
   }
 
+  const onClickOusideModal = () => {
+    if (document.getElementById("modal")) {
+      setModal(!modal);
+    }
+  };
+
   useEffect(() => {
     updateProjectList(todoList);
   }, [todoList]);
@@ -83,6 +89,15 @@ function ProjectTaskCard(props) {
 
   return (
     <>
+      {modal ? (
+        <div
+          onClick={() => onClickOusideModal()}
+          className="project-task-card-modal-main-container"
+        ></div>
+      ) : (
+        <></>
+      )}
+
       {modal ? (
         <ProjectTaskCardModal
           todoModel={todoModel}
