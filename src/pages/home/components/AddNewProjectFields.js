@@ -60,7 +60,13 @@ function AddNewProjectFields(props) {
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
       ></input>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          margin: "10px",
+        }}
+      >
         <label for="starred">Add to starred</label>
         <input
           id="starred"

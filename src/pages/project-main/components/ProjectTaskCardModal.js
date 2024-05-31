@@ -5,7 +5,7 @@ import { FaTrash } from "react-icons/fa";
 
 //Todo: fix updateTask [fixed; not a good solution]
 //Todo: Then fix design
-//Todo: Clicking outside will hide this component
+//Done: Clicking outside will hide this component
 
 function ProjectTaskCardModal(props) {
   const {

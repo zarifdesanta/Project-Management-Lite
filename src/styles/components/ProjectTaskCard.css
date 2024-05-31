@@ -4,6 +4,7 @@
   border-radius: 10px;
   display: grid;
   grid-template-columns: 6% 20% 50% 10% 11% 3%;
+  transition: all 0.25s;
 
   input:nth-child(1) {
     padding-left: 0px;
@@ -83,6 +84,12 @@
     border-radius: 10px;
   } */
 
+  select:hover {
+    transform: scale(1.01);
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+
   .done {
     color: var(--primary-green);
   }
@@ -128,6 +135,10 @@
     background-color: var(--primary-blue);
     border-radius: 10px;
   } */
+}
+
+.project-task-card-container:hover {
+  transform: scale(1.01);
 }
 
 @media screen and (max-width: 768px) {

@@ -13,6 +13,7 @@
   margin: 0px auto;
   z-index: 1000;
   gap: 10px;
+  animation: open-modal-anim 0.2s linear forwards;
 
   input {
     background-color: transparent;
@@ -81,5 +82,42 @@
     flex-direction: row;
     height: 10%;
     gap: 10px;
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover {
+    transform: scale(1.01);
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+
+  .done {
+    color: var(--primary-green);
+  }
+  .in-progress {
+    color: var(--primary-blue);
+  }
+  .todo {
+    color: var(--text-white);
+  }
+
+  .high {
+    color: var(--primary-red);
+  }
+  .medium {
+    color: var(--primary-orange);
+  }
+  .low {
+    color: var(--text-white);
+  }
+}
+
+@keyframes open-modal-anim {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
