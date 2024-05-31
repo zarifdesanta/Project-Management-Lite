@@ -28,6 +28,7 @@ import { FaStar, FaGear } from "react-icons/fa";
 function ProjectMain(props) {
   const { id } = useParams();
   const [firestoreId, setFirestoreId] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [projectList, setProjectList] = useState([]);
   const [model, setModel] = useState();
@@ -108,10 +109,11 @@ function ProjectMain(props) {
 
   useEffect(() => {
     setTodoModel(initTodoModel);
+    setIsLoading(true);
 
     const getData = async () => {
       const data = await getDocFromFirestore();
-
+      setIsLoading(false);
       if (data) {
         var cur = data.filter((model) => {
           return model?.id == id;
@@ -195,6 +197,7 @@ function ProjectMain(props) {
               <p>Progress</p>
             </div>
             <div className="task-item-container">
+              {isLoading ? <p>Loading...</p> : <></>}
               {todoList.map((todoModel, id) => {
                 return (
                   <ProjectTaskCard

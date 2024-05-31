@@ -17,6 +17,8 @@ import { signInWithPopup, signOut } from "firebase/auth";
 //Todo: filter based on timestamp (fixes sorting)
 
 function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [projectList, setProjectList] = useState([]);
   const [isViewAddProjectField, setIsViewAddProjectField] = useState(false);
 
@@ -42,8 +44,10 @@ function Home() {
 
   useEffect(() => {
     // var loadedProjectList = loadData("projectList");
+    setIsLoading(true);
     const getData = async () => {
       const data = await getDocFromFirestore();
+      setIsLoading(false);
       if (data) {
         setProjectList(data);
       }
@@ -78,6 +82,7 @@ function Home() {
         </button>
 
         <p>Starred</p>
+        {isLoading ? <p>Loading...</p> : <></>}
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;
@@ -97,6 +102,7 @@ function Home() {
 
       <div className="project-item-card-grid-container">
         <p className="title">All Projects</p>
+        {isLoading ? <p>Loading...</p> : <></>}
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;
