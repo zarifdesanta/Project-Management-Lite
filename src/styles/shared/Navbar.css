@@ -1,0 +1,28 @@
+body {
+  color: white;
+}
+
+.navbar-main-container {
+  background-color: var(--card-bg);
+  top: 0;
+  width: 100%;
+  position: sticky;
+  z-index: 1000;
+  margin-bottom: 10px;
+}
+
+.navbar-sub-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left-items {
+}
+
+.navbar-right-items {
+  display: flex;
+  gap: 10px;
+}

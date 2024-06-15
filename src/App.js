@@ -5,25 +5,29 @@ import Home from "./pages/home/Home";
 import ProjectMain from "./pages/project-main/ProjectMain";
 import NewProject from "./pages/new-project/NewProject";
 import SignIn from "./pages/sign-in/SignIn";
+import Navbar from "./components/shared/Navbar";
 
 function App() {
   return (
-    <div className="container">
-      <Router>
-        <Routes>
-          <Route path="/home" element={<Home></Home>}></Route>
-          <Route
-            path="/project-main/:id"
-            element={<ProjectMain></ProjectMain>}
-          ></Route>
-          <Route path="/" element={<SignIn></SignIn>}></Route>
-          <Route
-            path="/new-project"
-            element={<NewProject></NewProject>}
-          ></Route>
-        </Routes>
-      </Router>
-    </div>
+    <>
+      <div className="container">
+        <Router>
+          <Navbar></Navbar>
+          <Routes>
+            <Route path="/home" element={<Home></Home>}></Route>
+            <Route
+              path="/project-main/:id"
+              element={<ProjectMain></ProjectMain>}
+            ></Route>
+            <Route path="/" element={<SignIn></SignIn>}></Route>
+            <Route
+              path="/new-project"
+              element={<NewProject></NewProject>}
+            ></Route>
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 

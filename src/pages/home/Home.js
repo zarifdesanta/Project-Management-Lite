@@ -77,9 +77,9 @@ function Home() {
           <button className="button orange-button">Starred</button>
         </div>
 
-        <button className="button red-button" onClick={logout}>
+        {/* <button className="button red-button" onClick={logout}>
           Log out
-        </button>
+        </button> */}
 
         <p>Starred</p>
         {isLoading ? <p>Loading...</p> : <></>}

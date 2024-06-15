@@ -1,6 +1,6 @@
 .home-container {
   border-radius: 10px;
-  padding: 10px;
+  /* padding: 10px; */
   background-color: var(--sub-bg);
   display: flex;
   justify-content: flex-start;

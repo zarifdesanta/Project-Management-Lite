@@ -1,5 +1,8 @@
+body {
+}
+
 .sign-in-container {
-  background-color: var(--sub-bg);
+  background-color: var(--card-bg);
   padding: 10px;
   border-radius: 10px;
   max-width: 600px;
