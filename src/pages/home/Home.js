@@ -58,6 +58,14 @@ function Home() {
 
   return (
     <div className="home-container">
+      {isLoading ? (
+        <div className="loading-container">
+          <span>Loading...</span>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div className="left-items">
         <ToggleViewButton
           buttonName="New Project"
@@ -82,7 +90,7 @@ function Home() {
         </button> */}
 
         <p>Starred</p>
-        {isLoading ? <p>Loading...</p> : <></>}
+
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;
@@ -102,7 +110,7 @@ function Home() {
 
       <div className="project-item-card-grid-container">
         <p className="title">All Projects</p>
-        {isLoading ? <p>Loading...</p> : <></>}
+
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;

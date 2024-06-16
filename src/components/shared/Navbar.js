@@ -30,23 +30,13 @@ function Navbar() {
         </div>
         <div className="navbar-right-items">
           {/* <button className="button">+</button> */}
-          <button
-            className="button"
-            hidden={auth?.currentUser?.email == null ? true : false}
-          >
+          <button className="button">
             <FaStar size={16} color="white"></FaStar>
           </button>
-          <button
-            className="button"
-            hidden={auth?.currentUser?.email == null ? true : false}
-          >
+          <button className="button">
             <FaGear size={16} color="white"></FaGear>
           </button>
-          <button
-            className="button"
-            onClick={() => logout()}
-            hidden={auth?.currentUser?.email == null ? true : false}
-          >
+          <button className="button" onClick={() => logout()}>
             <FaSignOutAlt size={16} color="white"></FaSignOutAlt>
           </button>
         </div>

@@ -133,6 +133,14 @@ function ProjectMain(props) {
   return (
     <>
       <div className="project-main-container">
+        {isLoading ? (
+          <div className="loading-container">
+            <span>Loading...</span>
+          </div>
+        ) : (
+          <></>
+        )}
+
         <div className="header">
           <input
             value={projectTitle}
@@ -197,7 +205,6 @@ function ProjectMain(props) {
               <p>Progress</p>
             </div>
             <div className="task-item-container">
-              {isLoading ? <p>Loading...</p> : <></>}
               {todoList.map((todoModel, id) => {
                 return (
                   <ProjectTaskCard

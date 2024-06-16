@@ -15,6 +15,7 @@
     gap: 10px;
     width: 30%;
     color: var(--text-white);
+    padding-left: 10px;
 
     .second-row {
       display: flex;
@@ -32,6 +33,8 @@
     width: 70%;
     grid-auto-rows: max-content;
     overflow-x: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .title {
       color: var(--text-white);
