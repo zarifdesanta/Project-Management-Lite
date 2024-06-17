@@ -1,4 +1,8 @@
 .add-new-project-fields-container {
+  position: absolute;
+  max-width: 400px;
+  left: 56%;
+  z-index: 500;
   gap: 10px;
   color: var(--text-white);
   border-radius: 10px;
@@ -7,12 +11,15 @@
   margin: 0px auto;
   background-color: var(--card-bg);
   /* padding: 10px; */
+  box-shadow: var(--shadow);
+  /* border: 1px solid; */
 
   .input-field {
     border: 1px solid transparent;
     border-radius: 8px;
     padding: 8px 10px;
     margin: 10px;
+    z-index: 500px;
   }
 
   button {

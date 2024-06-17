@@ -16,6 +16,7 @@ function Navbar() {
   const logout = async () => {
     try {
       await signOut(auth);
+      //document.getElementById("rightItems").style.display = "none";
       navigate("/");
     } catch (err) {
       console(err);
@@ -28,7 +29,7 @@ function Navbar() {
         <div className="navbar-left-items">
           <span className="navbar-title">Project Management Lite</span>
         </div>
-        <div className="navbar-right-items">
+        <div className="navbar-right-items" id="rightItems">
           {/* <button className="button">+</button> */}
           <button className="button">
             <FaStar size={16} color="white"></FaStar>

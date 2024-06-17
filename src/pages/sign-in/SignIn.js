@@ -2,18 +2,21 @@ import React, { useEffect, useState } from "react";
 import "./SignIn.css";
 import { auth, googleProvider } from "../../utils/Firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { FaAngleRight } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 
 function SignIn() {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState();
 
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      handleLetsGoButton();
+
+      navigate("/home");
     } catch (err) {
       console.log(err);
     }
@@ -27,42 +30,40 @@ function SignIn() {
     }
   };
 
-  const handleLetsGoButton = () => {
-    if (auth?.currentUser != null) {
-      document.getElementById("letsGo").style.display = "block";
-    } else {
-      document.getElementById("letsGo").style.display = "none";
-    }
-  };
-
-  useEffect(() => {
-    handleLetsGoButton();
-  }, []);
-
   return (
     <div className="sign-in-container">
-      <h3>Project Management Lite</h3>
-      <button
-        className="button blue-button max-content sign-in-button"
-        onClick={signInWithGoogle}
-      >
-        <FaGoogle
-          size={24}
-          style={{ verticalAlign: "middle", marginRight: "4px" }}
-        ></FaGoogle>
-        Sign in with Google
-      </button>
+      <div className="sign-in-sub-container">
+        <h3>Sign In</h3>
 
-      {/* <button onClick={logout}>Log out</button> */}
+        <label for="email">Email</label>
+        <input id="email" placeholder="Email"></input>
 
-      <Link className="go-to-home-button-container" to={"/home"} id="letsGo">
-        <button className="go-to-home-button">
-          <FaAngleRight
-            size={50}
-            style={{ verticalAlign: "middle" }}
-          ></FaAngleRight>
+        <label for="password">Password</label>
+        <input id="password" placeholder="Password"></input>
+
+        <button className="button blue-button max-content center">
+          Log In
         </button>
-      </Link>
+
+        <div className="sign-in-divider-container">
+          <div></div>
+          <div>or</div>
+          <div></div>
+        </div>
+
+        <button
+          className="button blue-button max-content sign-in-button"
+          onClick={signInWithGoogle}
+        >
+          <FaGoogle
+            size={16}
+            style={{ verticalAlign: "middle", marginRight: "4px" }}
+          ></FaGoogle>
+          Sign in with Google
+        </button>
+
+        {/* <button onClick={logout}>Log out</button> */}
+      </div>
     </div>
   );
 }

@@ -4,14 +4,15 @@
   background-color: var(--sub-bg);
   display: flex;
   justify-content: flex-start;
-  flex-direction: row;
+  flex-direction: column;
   align-items: start;
   gap: 10px;
   height: 90vh;
 
   .left-items {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     width: 30%;
     color: var(--text-white);
@@ -25,12 +26,12 @@
   }
 
   .project-item-card-grid-container {
-    height: 90vh;
+    height: 50vh;
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    width: 70%;
+    width: 100%;
     grid-auto-rows: max-content;
     overflow-x: hidden;
     padding-left: 10px;
@@ -38,7 +39,7 @@
 
     .title {
       color: var(--text-white);
-      display: none;
+      /* display: none; */
     }
   }
 }

@@ -89,8 +89,27 @@ function Home() {
           Log out
         </button> */}
 
-        <p>Starred</p>
+        {/* <p>Starred</p> */}
 
+        {/* {projectList
+          .filter((model) => {
+            return model.userId == auth?.currentUser?.uid;
+          })
+          .map((model) => {
+            if (model.starred) {
+              return (
+                <ProjectItemCard
+                  model={model}
+                  id={model.id}
+                  firestoreId={model.id}
+                ></ProjectItemCard>
+              );
+            }
+          })} */}
+      </div>
+
+      <p>Starred</p>
+      <div className="project-item-card-grid-container">
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;
@@ -108,9 +127,8 @@ function Home() {
           })}
       </div>
 
+      <p className="title">All Projects</p>
       <div className="project-item-card-grid-container">
-        <p className="title">All Projects</p>
-
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;

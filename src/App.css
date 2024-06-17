@@ -17,6 +17,21 @@ body {
   --border-bottom-divider: 1px solid rgba(128, 128, 128, 0.226);
 }
 
+/* :root {
+  --primary-blue: #0077d4;
+  --primary-red: red;
+  --primary-green: rgb(0, 216, 0);
+  --primary-orange: orange;
+  --primary-white: white;
+  --text-white: rgb(0, 0, 0);
+  --text-black: rgb(255, 255, 255);
+  --card-bg: rgb(255, 255, 255);
+  --sub-bg: transparent;
+  --main-bg: rgb(255, 255, 255);
+  --shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.05);
+  --border-bottom-divider: 1px solid rgba(128, 128, 128, 0.226);
+} */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -60,6 +75,10 @@ body {
 
 .max-content {
   width: max-content !important;
+}
+
+.center {
+  margin: 0px auto;
 }
 
 .button {
