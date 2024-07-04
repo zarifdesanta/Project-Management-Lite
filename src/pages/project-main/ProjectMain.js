@@ -162,7 +162,7 @@ function ProjectMain(props) {
               setIsView={setIsViewOptionsField}
               divId="options"
               cssDisplay="flex"
-              notActiveButtonClass="primary-button"
+              notActiveButtonClass="white-button"
             ></ToggleViewButton>
 
             <ToggleViewButton
@@ -184,7 +184,7 @@ function ProjectMain(props) {
               </button>
             </Link>
             <button
-              className="button orange-button"
+              className="button white-button"
               onClick={() => handleSetIsStarred(!isStarred)}
             >
               {isStarred ? "Starred" : "Not Starred"}

@@ -81,8 +81,8 @@ function Home() {
         ></AddNewProjectFields>
 
         <div className="second-row">
-          <button className="button">Settings</button>
-          <button className="button orange-button">Starred</button>
+          <button className="button white-button">Settings</button>
+          <button className="button white-button">Starred</button>
         </div>
 
         {/* <button className="button red-button" onClick={logout}>

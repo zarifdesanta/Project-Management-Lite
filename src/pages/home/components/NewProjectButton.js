@@ -14,9 +14,7 @@ function NewProjectButton(props) {
 
   return (
     <button
-      className={
-        isViewAddProjectField ? "button orange-button" : "button blue-button"
-      }
+      className="button white-button"
       onClick={() => setIsViewAddProjectField(!isViewAddProjectField)}
     >
       {isViewAddProjectField ? (

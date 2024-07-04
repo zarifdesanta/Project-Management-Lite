@@ -115,6 +115,11 @@ body {
   background-color: var(--primary-orange);
 }
 
+.white-button {
+  background-color: white;
+  color: black;
+}
+
 .container {
   max-width: 1260px;
   margin: 0px auto;
