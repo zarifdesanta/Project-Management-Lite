@@ -162,7 +162,8 @@ function ProjectMain(props) {
               setIsView={setIsViewOptionsField}
               divId="options"
               cssDisplay="flex"
-              notActiveButtonClass="white-button"
+              notActiveButtonClass="black-button"
+              activeButtonClass="black-button"
             ></ToggleViewButton>
 
             <ToggleViewButton
@@ -171,6 +172,8 @@ function ProjectMain(props) {
               setIsView={setIsViewInputField}
               divId="fields"
               cssDisplay="grid"
+              activeButtonClass="black-button"
+              notActiveButtonClass="white-button"
             ></ToggleViewButton>
           </div>
 

@@ -107,14 +107,11 @@ function ProjectTaskCardModal(props) {
           <option>Done</option>
         </select>
         <div className="button-container">
-          <button
-            className="button delete-button"
-            onClick={() => deleteTask(id)}
-          >
-            <FaTrash color="white" size={15}></FaTrash>
+          <button className="button black" onClick={() => deleteTask(id)}>
+            <FaTrash color="red" size={15}></FaTrash>
           </button>
           <button
-            className="button save-button"
+            className="button white-button"
             onClick={() => setModal(!modal)}
           >
             Save

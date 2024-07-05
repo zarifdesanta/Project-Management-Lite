@@ -37,7 +37,7 @@ function AddNewTaskFields(props) {
             <option>Done</option>
           </select>
           <button
-            className="button blue-button fit-content"
+            className="button white-button fit-content"
             onClick={() => addNewTask()}
           >
             <span style={{ verticalAlign: "middle", marginRight: "4px" }}>

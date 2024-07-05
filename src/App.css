@@ -10,10 +10,10 @@ body {
   --primary-white: white;
   --text-white: white;
   --text-black: black;
-  --card-bg: rgb(51, 51, 51);
+  --card-bg: rgb(0, 0, 0);
   --sub-bg: transparent;
-  --main-bg: rgb(20, 20, 20);
-  --shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.35);
+  --main-bg: rgb(0, 0, 0);
+  --shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0);
   --border-bottom-divider: 1px solid rgba(128, 128, 128, 0.226);
 }
 
@@ -60,7 +60,7 @@ body {
 
 .checkbox {
   appearance: none;
-  background-color: var(--primary-white);
+  background-color: transparent;
   border-radius: 50%;
   width: 15px;
   height: 15px;
@@ -70,7 +70,7 @@ body {
 }
 
 .checkbox:checked {
-  background-color: var(--primary-blue);
+  background-color: white;
 }
 
 .max-content {
@@ -93,10 +93,11 @@ body {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: all 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .button:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .blue-button {
@@ -118,6 +119,19 @@ body {
 .white-button {
   background-color: white;
   color: black;
+}
+
+.white-button:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.black-button {
+  background-color: transparent;
+  color: white;
+}
+
+.black-button:hover {
+  background-color: rgba(128, 128, 128, 0.25);
 }
 
 .container {

@@ -41,7 +41,7 @@ function SignIn() {
         <label for="password">Password</label>
         <input id="password" placeholder="Password"></input>
 
-        <button className="button blue-button max-content center">
+        <button className="button white-button max-content center">
           Log In
         </button>
 
@@ -52,7 +52,7 @@ function SignIn() {
         </div>
 
         <button
-          className="button blue-button max-content sign-in-button"
+          className="button white-button max-content sign-in-button"
           onClick={signInWithGoogle}
         >
           <FaGoogle

@@ -9,11 +9,12 @@ body {
   position: sticky;
   z-index: 1000;
   margin-bottom: 10px;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .navbar-sub-container {
-  padding: 10px;
+  padding: 10px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

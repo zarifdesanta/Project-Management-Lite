@@ -76,7 +76,7 @@ function AddNewProjectFields(props) {
         ></input>
       </div>
 
-      <button className="button blue-button" onClick={addNewProject}>
+      <button className="button white-button" onClick={addNewProject}>
         Create
       </button>
     </div>

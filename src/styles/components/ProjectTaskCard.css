@@ -6,6 +6,7 @@
   grid-template-columns: 6% 20% 50% 10% 11% 3%;
   transition: all 0.25s;
   box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 
   input:nth-child(1) {
     padding-left: 0px;
@@ -31,7 +32,7 @@
     color: var(--text-white);
     padding: 8px 10px;
     margin-right: 10px;
-    border-right: 1px solid var(--main-bg);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.25s;
@@ -46,7 +47,7 @@
     resize: none;
     /* padding: 4px 8px; */
     margin-right: 10px;
-    border-right: 1px solid var(--main-bg);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 14px;
     cursor: pointer;
     transition: all 0.25s;
@@ -57,7 +58,7 @@
     background-color: transparent;
     border: none;
     color: var(--text-white);
-    border-right: 1px solid var(--main-bg);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
     padding: 8px 10px;
     margin-right: 10px;
     font-size: 14px;
@@ -86,7 +87,7 @@
   } */
 
   select:hover {
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
     border: 1px solid white;
     border-radius: 10px;
   }
@@ -139,7 +140,8 @@
 }
 
 .project-task-card-container:hover {
-  transform: scale(1.01);
+  /* transform: scale(1.01); */
+  background-color: rgba(128, 128, 128, 0.25);
 }
 
 @media screen and (max-width: 768px) {

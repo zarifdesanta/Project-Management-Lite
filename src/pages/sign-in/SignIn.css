@@ -12,6 +12,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 
     /* margin: 0px auto; */
     display: flex;
@@ -29,6 +30,8 @@ body {
     input {
       border-radius: 10px;
       padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background-color: transparent;
       /* width: 100%; */
       /* margin: 10px; */
     }

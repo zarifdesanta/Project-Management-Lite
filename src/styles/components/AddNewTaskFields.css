@@ -21,7 +21,7 @@
         margin-right: 10px;
         background-color: var(--card-bg);
         color: var(--text-white);
-        border: 1px solid rgba(255, 255, 255, 0.39);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
 
       textarea {
@@ -32,7 +32,7 @@
         margin-right: 10px;
         background-color: var(--card-bg);
         color: var(--text-white);
-        border: 1px solid rgba(255, 255, 255, 0.39);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
 
       select {
@@ -42,7 +42,7 @@
         cursor: pointer;
         background-color: var(--card-bg);
         color: var(--text-white);
-        border: 1px solid rgba(255, 255, 255, 0.39);
+        border: 1px solid rgba(255, 255, 255, 0.5);
       }
     }
   }

@@ -73,6 +73,8 @@ function Home() {
           setIsView={setIsViewAddProjectField}
           divId="addNewProjectField"
           cssDisplay="flex"
+          activeButtonClass="black-button"
+          notActiveButtonClass="white-button"
         ></ToggleViewButton>
         <AddNewProjectFields
           setIsViewAddProjectField={setIsViewAddProjectField}
@@ -81,8 +83,8 @@ function Home() {
         ></AddNewProjectFields>
 
         <div className="second-row">
-          <button className="button white-button">Settings</button>
-          <button className="button white-button">Starred</button>
+          <button className="button black-button">Settings</button>
+          <button className="button black-button">Starred</button>
         </div>
 
         {/* <button className="button red-button" onClick={logout}>

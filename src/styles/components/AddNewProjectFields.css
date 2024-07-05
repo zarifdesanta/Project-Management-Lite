@@ -12,14 +12,15 @@
   background-color: var(--card-bg);
   /* padding: 10px; */
   box-shadow: var(--shadow);
-  /* border: 1px solid; */
+  border: 1px solid rgba(255, 255, 255, 0.5);
 
   .input-field {
-    border: 1px solid transparent;
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
     padding: 8px 10px;
     margin: 10px;
     z-index: 500px;
+    background-color: transparent;
   }
 
   button {

@@ -23,7 +23,9 @@ function ToggleViewButton({
   return (
     <button
       className={
-        isView ? "button " + "white-button" : "button " + notActiveButtonClass
+        isView
+          ? "button " + activeButtonClass
+          : "button " + notActiveButtonClass
       }
       onClick={() => setIsView(!isView)}
     >
