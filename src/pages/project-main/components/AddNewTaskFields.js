@@ -41,7 +41,7 @@ function AddNewTaskFields(props) {
             onClick={() => addNewTask()}
           >
             <span style={{ verticalAlign: "middle", marginRight: "4px" }}>
-              New
+              Add
             </span>
             <FaPlus size={12} style={{ verticalAlign: "middle" }}></FaPlus>
           </button>

@@ -93,52 +93,6 @@
     border: 1px solid white;
     border-radius: 10px;
   }
-
-  /* .done {
-    color: var(--primary-green);
-  }
-  .in-progress {
-    color: var(--primary-blue);
-  }
-  .todo {
-    color: var(--text-white);
-  }
-
-  .high {
-    color: var(--primary-red);
-  }
-  .medium {
-    color: var(--primary-orange);
-  }
-  .low {
-    color: var(--text-white);
-  } */
-
-  /* .done {
-    background-color: var(--primary-green);
-    border-radius: 10px;
-  }
-  .in-progress {
-    background-color: var(--primary-blue);
-    border-radius: 10px;
-  }
-  .todo {
-    background-color: var(--primary-orange);
-    border-radius: 10px;
-  }
-
-  .high {
-    background-color: var(--primary-red);
-    border-radius: 10px;
-  }
-  .medium {
-    background-color: var(--primary-orange);
-    border-radius: 10px;
-  }
-  .low {
-    background-color: var(--primary-blue);
-    border-radius: 10px;
-  } */
 }
 
 .project-task-card-container:hover {
@@ -150,6 +104,11 @@
   .project-task-card-container {
     grid-template-columns: 100%;
     gap: 10px;
+  }
+
+  .project-task-card-container select,
+  .project-task-card-container button {
+    display: none;
   }
 }
 

@@ -98,8 +98,8 @@ function Home() {
           setIsView={setIsViewAddProjectField}
           divId="addNewProjectField"
           cssDisplay="flex"
-          activeButtonClass="black-button"
-          notActiveButtonClass="white-button"
+          activeButtonClass="black-button max-content"
+          notActiveButtonClass="white-button max-content"
         ></ToggleViewButton>
         <AddNewProjectFields
           setIsViewAddProjectField={setIsViewAddProjectField}
@@ -107,9 +107,9 @@ function Home() {
           setProjectList={setProjectList}
         ></AddNewProjectFields>
 
+        <button className="button black-button max-content">Settings</button>
+        <button className="button black-button max-content">Starred</button>
         <div className="second-row">
-          <button className="button black-button">Settings</button>
-          <button className="button black-button">Starred</button>
           <div className="search-field">
             <FaSearch className="custom-icon"></FaSearch>
             <input
@@ -144,7 +144,10 @@ function Home() {
       </div>
 
       <p>Starred</p>
-      <div className="project-item-card-grid-container">
+      <div
+        className="project-item-card-grid-container"
+        style={{ height: "20vh" }}
+      >
         {projectList
           .filter((model) => {
             return model.userId == auth?.currentUser?.uid;

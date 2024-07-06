@@ -112,29 +112,9 @@
   .header-group {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: space-between;
   }
-
-  /* .done {
-    color: var(--primary-green);
-  }
-  .in-progress {
-    color: var(--primary-blue);
-  }
-  .todo {
-    color: var(--text-white);
-  }
-
-  .high {
-    color: var(--primary-red);
-  }
-  .medium {
-    color: var(--primary-orange);
-  }
-  .low {
-    color: var(--text-white);
-  } */
 }
 
 @keyframes open-modal-anim {
@@ -143,5 +123,19 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-task-card-modal-sub-container {
+    width: 300px;
+  }
+
+  .project-task-card-modal-sub-container .header-group {
+    flex-direction: column;
+  }
+
+  .project-task-card-modal-sub-container input:last-child {
+    text-align: left;
   }
 }
