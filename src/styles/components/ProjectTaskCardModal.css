@@ -1,6 +1,6 @@
 .project-task-card-modal-sub-container {
   width: 800px;
-  height: 600px;
+  height: 500px;
   padding: 10px;
   border-radius: 10px;
   background-color: var(--card-bg);
@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   margin: 0px auto;
+  margin-top: -5%;
   z-index: 1000;
   gap: 10px;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -18,14 +19,16 @@
 
   input {
     background-color: transparent;
-    border: 1px solid gray;
+    border: none;
     border-radius: 10px;
     color: var(--text-white);
-    padding: 8px 10px;
+    /* padding: 8px 10px; */
 
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    height: 10%;
+    height: 52.25px;
+    /* width: 100%; */
     transition: all 0.25s;
   }
 
@@ -35,10 +38,10 @@
     border-radius: 10px;
     color: var(--text-white);
     padding: 8px 10px;
-
+    resize: none;
     font-size: 14px;
     cursor: pointer;
-    height: 50%;
+    height: 100%;
     transition: all 0.25s;
   }
 
@@ -49,11 +52,12 @@
     border-radius: 10px;
     color: var(--text-white);
     padding: 8px 10px;
-
     font-size: 14px;
-    height: 10%;
+    height: 52.25px;
     cursor: pointer;
     transition: all 0.25s;
+
+    width: 100%;
 
     option {
       background-color: black;
@@ -92,6 +96,20 @@
     /* border: 1px solid white; */
     /* border-radius: 10px; */
     background-color: rgba(128, 128, 128, 0.25);
+  }
+
+  .row-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .header-group {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
   }
 
   /* .done {

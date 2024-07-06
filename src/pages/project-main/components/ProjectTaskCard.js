@@ -153,6 +153,8 @@ function ProjectTaskCard(props) {
         >
           <option>To do</option>
           <option>In progress</option>
+          <option>Discussion</option>
+          <option>Ignore</option>
           <option>Done</option>
         </select>
         <button className="button " onClick={() => deleteTask(id)}>

@@ -74,38 +74,45 @@ function ProjectTaskCardModal(props) {
   return (
     <>
       <div className="project-task-card-modal-sub-container" id="modal">
-        <input
-          value={todoModel.issueId}
-          onChange={(e) => updateTask(e.target.value, 5)}
-        ></input>
-        <input
-          value={todoModel?.taskName}
-          placeholder={todoModel?.taskName}
-          onChange={(e) => updateTask(e.target.value, 1)}
-        ></input>
+        <div className="header-group">
+          <input
+            value={todoModel.issueId}
+            onChange={(e) => updateTask(e.target.value, 5)}
+          ></input>
+          <input
+            value={todoModel?.taskName}
+            placeholder={todoModel?.taskName}
+            onChange={(e) => updateTask(e.target.value, 1)}
+          ></input>
+        </div>
+        <div className="row-group">
+          <select
+            value={todoModel?.priority}
+            className={handlePriorityColorClass(todoModel?.priority)}
+            onChange={(e) => updateTask(e.target.value, 3)}
+          >
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+          <select
+            value={todoModel?.progress}
+            className={handleProgressColorClass(todoModel?.progress)}
+            onChange={(e) => updateTask(e.target.value, 4)}
+          >
+            <option>To do</option>
+            <option>In progress</option>
+            <option>Discussion</option>
+            <option>Ignore</option>
+            <option>Done</option>
+          </select>
+        </div>
+
         <textarea
           value={todoModel?.details}
           onChange={(e) => updateTask(e.target.value, 2)}
         ></textarea>
 
-        <select
-          value={todoModel?.priority}
-          className={handlePriorityColorClass(todoModel?.priority)}
-          onChange={(e) => updateTask(e.target.value, 3)}
-        >
-          <option>High</option>
-          <option>Medium</option>
-          <option>Low</option>
-        </select>
-        <select
-          value={todoModel?.progress}
-          className={handleProgressColorClass(todoModel?.progress)}
-          onChange={(e) => updateTask(e.target.value, 4)}
-        >
-          <option>To do</option>
-          <option>In progress</option>
-          <option>Done</option>
-        </select>
         <div className="button-container">
           <button className="button black" onClick={() => deleteTask(id)}>
             <FaTrash color="red" size={15}></FaTrash>
