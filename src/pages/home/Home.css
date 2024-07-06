@@ -22,6 +22,30 @@
       display: flex;
       flex-direction: row;
       gap: 10px;
+
+      .search-field {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background-color: transparent;
+        border-radius: 10px;
+        display: flex;
+        transition: all 0.2s;
+        position: relative;
+
+        .custom-icon {
+          position: absolute;
+          top: 7px;
+          left: 5px;
+        }
+
+        input {
+          background-color: transparent;
+          border-radius: 10px;
+          color: white;
+          border: none;
+          padding-left: 30px;
+          cursor: pointer;
+        }
+      }
     }
   }
 
@@ -44,6 +68,10 @@
       color: var(--text-white);
       /* display: none; */
     }
+  }
+
+  .left-items .second-row .search-field:hover {
+    background-color: rgba(128, 128, 128, 0.25);
   }
 }
 

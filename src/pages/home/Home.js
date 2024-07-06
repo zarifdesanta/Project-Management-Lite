@@ -12,6 +12,8 @@ import { getDocFromFirestore } from "../../utils/Common";
 import { auth, googleProvider } from "../../utils/Firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 
+import { FaSearch } from "react-icons/fa";
+
 //Todo: reset input field after creating a project
 //Todo: add timestamp
 //Todo: filter based on timestamp (fixes sorting)
@@ -25,6 +27,8 @@ function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [searchVal, setSearchVal] = useState("");
+
   const navigate = useNavigate();
 
   console.log(auth?.currentUser?.email);
@@ -36,6 +40,27 @@ function Home() {
     } catch (err) {
       console(err);
     }
+  };
+
+  const handleSearchInput = (searchTerm) => {
+    if (searchTerm == "") {
+      const getData = async () => {
+        const data = await getDocFromFirestore();
+        setIsLoading(false);
+        if (data) {
+          setProjectList(data);
+        }
+      };
+
+      getData();
+    }
+
+    const filteredList = projectList.filter((project) =>
+      project.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setProjectList(filteredList);
+    console.log(filteredList);
   };
 
   useEffect(() => {
@@ -85,6 +110,14 @@ function Home() {
         <div className="second-row">
           <button className="button black-button">Settings</button>
           <button className="button black-button">Starred</button>
+          <div className="search-field">
+            <FaSearch className="custom-icon"></FaSearch>
+            <input
+              placeholder="Search..."
+              type="text"
+              onChange={(e) => handleSearchInput(e.target.value)}
+            ></input>
+          </div>
         </div>
 
         {/* <button className="button red-button" onClick={logout}>

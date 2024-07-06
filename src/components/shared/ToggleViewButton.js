@@ -11,8 +11,8 @@ function ToggleViewButton({
   setIsView,
   divId,
   cssDisplay,
-  activeButtonClass = "orange-button",
-  notActiveButtonClass = "blue-button",
+  activeButtonClass = "black-button",
+  notActiveButtonClass = "white-button",
 }) {
   //   const { buttonName, isView, setIsView, divId, cssDisplay } = props;
 
