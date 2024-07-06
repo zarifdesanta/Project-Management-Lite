@@ -94,7 +94,7 @@
     background-color: rgba(128, 128, 128, 0.25);
   }
 
-  .done {
+  /* .done {
     color: var(--primary-green);
   }
   .in-progress {
@@ -112,7 +112,7 @@
   }
   .low {
     color: var(--text-white);
-  }
+  } */
 }
 
 @keyframes open-modal-anim {

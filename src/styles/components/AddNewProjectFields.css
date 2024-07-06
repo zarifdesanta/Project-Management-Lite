@@ -1,14 +1,16 @@
 .add-new-project-fields-container {
   position: absolute;
   max-width: 400px;
-  left: 56%;
+  top: 100%;
+  left: 0%;
   z-index: 500;
   gap: 10px;
   color: var(--text-white);
   border-radius: 10px;
   display: none;
   flex-direction: column;
-  margin: 0px auto;
+  /* margin: 0px auto; */
+  margin-top: 10px;
   background-color: var(--card-bg);
   /* padding: 10px; */
   box-shadow: var(--shadow);

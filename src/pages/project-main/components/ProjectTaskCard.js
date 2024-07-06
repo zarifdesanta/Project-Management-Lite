@@ -118,16 +118,24 @@ function ProjectTaskCard(props) {
           // onChange={(e) => updateTask(e.target.value, 5)}
         ></input>
         <input
-          value={todoModel?.taskName}
+          value={
+            todoModel?.taskName.length > 18
+              ? todoModel?.taskName.slice(0, 18) + "..."
+              : todoModel?.taskName
+          }
           placeholder={todoModel?.taskName}
           onClick={() => setModal(!modal)}
           // onChange={(e) => updateTask(e.target.value, 1)}
         ></input>
-        <textarea
-          value={todoModel?.details}
+        <input
+          value={
+            todoModel?.details.length > 50
+              ? todoModel?.details.slice(0, 50) + "..."
+              : todoModel?.details
+          }
           onClick={() => setModal(!modal)}
           // onChange={(e) => updateTask(e.target.value, 2)}
-        ></textarea>
+        ></input>
 
         <select
           value={todoModel?.priority}

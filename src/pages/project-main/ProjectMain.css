@@ -69,16 +69,19 @@
     grid-template-columns: 5% 20% 50% 10% 10% 10%;
     text-align: left;
     margin-left: 10px;
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .task-item-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 0px;
     height: 75vh;
     overflow-y: auto;
     overflow-x: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
   }
 }
 
