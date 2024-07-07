@@ -91,6 +91,15 @@ function Home() {
         <></>
       )}
 
+      <div className="search-field">
+        <FaSearch className="custom-icon"></FaSearch>
+        <input
+          placeholder="Search..."
+          type="text"
+          onChange={(e) => handleSearchInput(e.target.value)}
+        ></input>
+      </div>
+
       <div className="left-items">
         <ToggleViewButton
           buttonName="New Project"
@@ -109,16 +118,7 @@ function Home() {
 
         <button className="button black-button max-content">Settings</button>
         <button className="button black-button max-content">Starred</button>
-        <div className="second-row">
-          <div className="search-field">
-            <FaSearch className="custom-icon"></FaSearch>
-            <input
-              placeholder="Search..."
-              type="text"
-              onChange={(e) => handleSearchInput(e.target.value)}
-            ></input>
-          </div>
-        </div>
+        <div className="second-row"></div>
 
         {/* <button className="button red-button" onClick={logout}>
           Log out

@@ -163,6 +163,15 @@ function ProjectMain(props) {
           <></>
         )}
 
+        {/* <div className="search-field">
+          <FaSearch className="custom-icon"></FaSearch>
+          <input
+            placeholder="Search..."
+            type="text"
+            onChange={(e) => handleSearchInput(e.target.value)}
+          ></input>
+        </div> */}
+
         <div className="header">
           <input
             value={projectTitle}
@@ -187,15 +196,6 @@ function ProjectMain(props) {
               notActiveButtonClass="black-button"
               activeButtonClass="black-button"
             ></ToggleViewButton>
-
-            <div className="search-field">
-              <FaSearch className="custom-icon"></FaSearch>
-              <input
-                placeholder="Search..."
-                type="text"
-                onChange={(e) => handleSearchInput(e.target.value)}
-              ></input>
-            </div>
 
             <ToggleViewButton
               buttonName="New"
