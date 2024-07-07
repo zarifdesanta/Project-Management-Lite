@@ -3,7 +3,7 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
-    border-bottom: var(--border-bottom-divider);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 
     .fields {
       display: none;
@@ -15,24 +15,24 @@
       /* animation: animate-field-open 0.4s forwards; */
 
       input {
-        border: 1px solid transparent;
+        /* border: 1px solid transparent; */
         border-radius: 8px;
         padding: 8px 10px;
         margin-right: 10px;
         background-color: var(--card-bg);
         color: var(--text-white);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.25);
       }
 
       textarea {
         resize: none;
-        border: 1px solid transparent;
+        /* border: 1px solid transparent; */
         border-radius: 8px;
         padding: 8px 10px;
         margin-right: 10px;
         background-color: var(--card-bg);
         color: var(--text-white);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.25);
       }
 
       select {
@@ -42,7 +42,7 @@
         cursor: pointer;
         background-color: var(--card-bg);
         color: var(--text-white);
-        border: 1px solid rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.25);
       }
     }
   }

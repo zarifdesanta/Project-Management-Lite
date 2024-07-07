@@ -8,7 +8,9 @@
   transition: all 0.25s;
   position: relative;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   .project-card-title {
     font-size: 20px;
@@ -21,6 +23,13 @@
     bottom: 10px;
     right: 10px;
   }
+}
+
+.project-item-card-container:first-child {
+  margin-left: 5px;
+}
+.project-item-card-container:last-child {
+  margin-right: 5px;
 }
 
 .project-item-card-container:hover {

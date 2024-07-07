@@ -10,21 +10,23 @@ import Navbar from "./components/shared/Navbar";
 function App() {
   return (
     <>
-      <div className="container">
+      <div>
         <Router>
           <Navbar></Navbar>
-          <Routes>
-            <Route path="/home" element={<Home></Home>}></Route>
-            <Route
-              path="/project-main/:id"
-              element={<ProjectMain></ProjectMain>}
-            ></Route>
-            <Route path="/" element={<SignIn></SignIn>}></Route>
-            <Route
-              path="/new-project"
-              element={<NewProject></NewProject>}
-            ></Route>
-          </Routes>
+          <div className="container">
+            <Routes>
+              <Route path="/home" element={<Home></Home>}></Route>
+              <Route
+                path="/project-main/:id"
+                element={<ProjectMain></ProjectMain>}
+              ></Route>
+              <Route path="/" element={<SignIn></SignIn>}></Route>
+              <Route
+                path="/new-project"
+                element={<NewProject></NewProject>}
+              ></Route>
+            </Routes>
+          </div>
         </Router>
       </div>
     </>

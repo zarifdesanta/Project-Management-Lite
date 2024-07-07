@@ -146,7 +146,7 @@ function Home() {
       <p>Starred</p>
       <div
         className="project-item-card-grid-container"
-        style={{ height: "20vh" }}
+        style={{ height: "25vh" }}
       >
         {projectList
           .filter((model) => {

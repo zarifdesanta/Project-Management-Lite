@@ -3,17 +3,21 @@ body {
 }
 
 .navbar-main-container {
-  background-color: var(--card-bg);
+  background-color: transparent;
   top: 0;
   width: 100%;
   position: sticky;
   z-index: 1000;
   margin-bottom: 10px;
   border-radius: 0px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(10px);
 }
 
 .navbar-sub-container {
+  max-width: 1260px;
+  margin: 0px auto;
   padding: 10px 0px;
   display: flex;
   flex-direction: row;

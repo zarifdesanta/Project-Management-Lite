@@ -6,7 +6,7 @@
   grid-template-columns: 6% 20% 50% 10% 11% 3%;
   transition: all 0.25s;
   box-shadow: var(--shadow);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 
   input:nth-child(1) {
     padding-left: 0px;

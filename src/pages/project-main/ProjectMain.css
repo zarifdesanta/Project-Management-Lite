@@ -11,7 +11,7 @@
   .header {
     display: flex;
     justify-content: space-between;
-    border-bottom: var(--border-bottom-divider);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
     padding-bottom: 5px;
 
     input {
@@ -77,11 +77,11 @@
     flex-direction: column;
     width: 100%;
     gap: 0px;
-    height: 75vh;
-    overflow-y: auto;
+    /* height: 75vh; */
+    /* overflow-y: auto; */
     overflow-x: hidden;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.25);
   }
 }
 

@@ -14,7 +14,7 @@
   margin-top: -5%;
   z-index: 1000;
   gap: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   animation: open-modal-anim 0.2s linear forwards;
 
   input {

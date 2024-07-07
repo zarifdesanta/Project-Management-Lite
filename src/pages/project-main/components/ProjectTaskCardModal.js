@@ -45,6 +45,7 @@ function ProjectTaskCardModal(props) {
 
     setTodoList(copiedTodoList);
     updateProjectList(copiedTodoList);
+    setModal(!modal);
   };
 
   const handleProgressColorClass = (value) => {
