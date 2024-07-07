@@ -38,6 +38,12 @@ function ProjectTaskCardModal(props) {
     updateProjectList(todoList);
   };
 
+  const saveUpdatedTask = () => {
+    setTodoList(todoList);
+    updateProjectList(todoList);
+    setModal(!modal);
+  };
+
   //task item delete func
   const deleteTask = (id) => {
     let copiedTodoList = [...todoList];
@@ -48,29 +54,9 @@ function ProjectTaskCardModal(props) {
     setModal(!modal);
   };
 
-  const handleProgressColorClass = (value) => {
-    if (value == "Done") {
-      return "done";
-    } else if (value == "In progress") {
-      return "in-progress";
-    } else {
-      return "todo";
-    }
-  };
-
-  const handlePriorityColorClass = (value) => {
-    if (value == "Low") {
-      return "low";
-    } else if (value == "Medium") {
-      return "medium";
-    } else {
-      return "high";
-    }
-  };
-
-  useEffect(() => {
-    updateProjectList(todoList);
-  }, [todoList]);
+  // useEffect(() => {
+  //   updateProjectList(todoList);
+  // }, [todoList]);
 
   return (
     <>
@@ -89,7 +75,6 @@ function ProjectTaskCardModal(props) {
         <div className="row-group">
           <select
             value={todoModel?.priority}
-            className={handlePriorityColorClass(todoModel?.priority)}
             onChange={(e) => updateTask(e.target.value, 3)}
           >
             <option>High</option>
@@ -98,7 +83,6 @@ function ProjectTaskCardModal(props) {
           </select>
           <select
             value={todoModel?.progress}
-            className={handleProgressColorClass(todoModel?.progress)}
             onChange={(e) => updateTask(e.target.value, 4)}
           >
             <option>To do</option>
@@ -120,7 +104,7 @@ function ProjectTaskCardModal(props) {
           </button>
           <button
             className="button white-button"
-            onClick={() => setModal(!modal)}
+            onClick={() => saveUpdatedTask()}
           >
             Save
           </button>

@@ -10,9 +10,9 @@ body {
   --primary-white: white;
   --text-white: white;
   --text-black: black;
-  --card-bg: rgb(12, 12, 12);
+  --card-bg: rgb(15, 15, 15);
   --sub-bg: transparent;
-  --main-bg: rgb(12, 12, 12);
+  --main-bg: rgb(15, 15, 15);
   --shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0);
   --border-bottom-divider: 1px solid rgba(128, 128, 128, 0.226);
 }
@@ -71,6 +71,36 @@ body {
 
 .checkbox:checked {
   background-color: white;
+}
+
+.search-field {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: transparent;
+  border-radius: 10px;
+  display: flex;
+  transition: all 0.2s;
+  position: relative;
+  min-width: 250px;
+
+  .custom-icon {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+  }
+
+  input {
+    background-color: transparent;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    padding-left: 30px;
+    cursor: pointer;
+    min-width: 250px;
+  }
+}
+
+.search-field:hover {
+  background-color: rgba(128, 128, 128, 0.25);
 }
 
 .max-content {

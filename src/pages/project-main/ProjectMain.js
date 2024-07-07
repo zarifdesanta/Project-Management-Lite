@@ -18,6 +18,7 @@ import OptionsButton from "./components/OptionsButton";
 import ToggleViewButton from "../../components/shared/ToggleViewButton";
 
 import { FaStar, FaGear } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 //Done: fix default value
 //Done: fix default value after adding
@@ -107,6 +108,27 @@ function ProjectMain(props) {
     deleteDocFromFirestore(firestoreId);
   };
 
+  const handleSearchInput = (searchTerm) => {
+    if (searchTerm == "") {
+      const getData = async () => {
+        const data = await getDocFromFirestore();
+
+        if (data) {
+          setTodoList(model.todoList);
+        }
+      };
+
+      getData();
+    }
+
+    const filteredList = todoList.filter((todo) =>
+      todo.taskName.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    setTodoList(filteredList);
+    console.log(filteredList);
+  };
+
   useEffect(() => {
     setTodoModel(initTodoModel);
     setIsLoading(true);
@@ -165,6 +187,15 @@ function ProjectMain(props) {
               notActiveButtonClass="black-button"
               activeButtonClass="black-button"
             ></ToggleViewButton>
+
+            <div className="search-field">
+              <FaSearch className="custom-icon"></FaSearch>
+              <input
+                placeholder="Search..."
+                type="text"
+                onChange={(e) => handleSearchInput(e.target.value)}
+              ></input>
+            </div>
 
             <ToggleViewButton
               buttonName="New"

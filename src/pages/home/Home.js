@@ -27,11 +27,11 @@ function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [searchVal, setSearchVal] = useState("");
+  // const [searchVal, setSearchVal] = useState("");
 
   const navigate = useNavigate();
 
-  console.log(auth?.currentUser?.email);
+  // console.log(auth?.currentUser?.email);
 
   const logout = async () => {
     try {

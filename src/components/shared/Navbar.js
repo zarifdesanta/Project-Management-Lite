@@ -11,7 +11,7 @@ import { FaSignOutAlt } from "react-icons/fa";
 function Navbar() {
   const navigate = useNavigate();
 
-  console.log(auth?.currentUser?.email);
+  // console.log(auth?.currentUser?.email);
 
   const logout = async () => {
     try {
@@ -23,6 +23,14 @@ function Navbar() {
     }
   };
 
+  useEffect(() => {
+    if (window.location.pathname == "/") {
+      document.getElementById("rightItems").style.display = "none";
+    } else {
+      document.getElementById("rightItems").style.display = "flex";
+    }
+  }, [navigate]);
+
   return (
     <div className="navbar-main-container">
       <div className="navbar-sub-container">
@@ -31,13 +39,13 @@ function Navbar() {
         </div>
         <div className="navbar-right-items" id="rightItems">
           {/* <button className="button">+</button> */}
-          <button className="button">
+          <button className="button black-button">
             <FaStar size={16} color="white"></FaStar>
           </button>
-          <button className="button">
+          <button className="button black-button">
             <FaGear size={16} color="white"></FaGear>
           </button>
-          <button className="button" onClick={() => logout()}>
+          <button className="button black-button" onClick={() => logout()}>
             <FaSignOutAlt size={16} color="white"></FaSignOutAlt>
           </button>
         </div>
