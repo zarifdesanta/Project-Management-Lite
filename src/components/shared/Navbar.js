@@ -35,7 +35,7 @@ function Navbar() {
     <div className="navbar-main-container">
       <div className="navbar-sub-container">
         <div className="navbar-left-items">
-          <span className="navbar-title">Project Management Lite</span>
+          <span className="navbar-title">Atmos Lite</span>
         </div>
         <div className="navbar-right-items" id="rightItems">
           {/* <button className="button">+</button> */}
