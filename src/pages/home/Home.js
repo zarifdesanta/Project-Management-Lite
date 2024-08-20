@@ -81,6 +81,10 @@ function Home() {
     getData();
   }, []);
 
+  const alertBtnClick = () => {
+    return alert("In Development!!");
+  };
+
   return (
     <div className="home-container">
       {isLoading ? (
@@ -116,8 +120,18 @@ function Home() {
           setProjectList={setProjectList}
         ></AddNewProjectFields>
 
-        <button className="button black-button max-content">Settings</button>
-        <button className="button black-button max-content">Starred</button>
+        <button
+          className="button black-button max-content"
+          onClick={alertBtnClick}
+        >
+          Settings
+        </button>
+        <button
+          className="button black-button max-content"
+          onClick={alertBtnClick}
+        >
+          Starred
+        </button>
         <div className="second-row"></div>
 
         {/* <button className="button red-button" onClick={logout}>

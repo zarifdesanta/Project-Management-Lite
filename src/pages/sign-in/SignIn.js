@@ -30,6 +30,10 @@ function SignIn() {
     }
   };
 
+  const alertBtnClick = () => {
+    return alert("In Development!!");
+  };
+
   return (
     <div className="sign-in-container">
       <div className="sign-in-sub-container">
@@ -41,7 +45,10 @@ function SignIn() {
         <label for="password">Password</label>
         <input id="password" placeholder="Password"></input>
 
-        <button className="button white-button max-content center">
+        <button
+          className="button white-button max-content center"
+          onClick={alertBtnClick}
+        >
           Log In
         </button>
 

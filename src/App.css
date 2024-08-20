@@ -1,5 +1,6 @@
 body {
   background-color: var(--main-bg);
+  font-family: "Open Sans";
 }
 
 :root {
