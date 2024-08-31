@@ -7,41 +7,6 @@ body {
   align-items: center;
   justify-content: center;
 
-  .sign-in-sub-container {
-    background-color: var(--card-bg);
-    padding: 10px;
-    border-radius: 10px;
-    width: 400px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    /* margin: 0px auto; */
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-    color: white;
-    font-size: 24px;
-    gap: 10px;
-
-    h3 {
-      margin: 10px auto;
-    }
-
-    input {
-      border-radius: 10px;
-      padding: 8px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background-color: transparent;
-      color: white;
-      /* width: 100%; */
-      /* margin: 10px; */
-    }
-
-    label {
-      font-size: 14px;
-    }
-  }
-
   .sign-in-button {
     margin: 0px auto;
 
@@ -54,6 +19,41 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+  }
+}
+
+.sign-in-container .sign-in-sub-container {
+  background-color: var(--card-bg);
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* margin: 0px auto; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  color: white;
+  font-size: 24px;
+  gap: 10px;
+
+  h3 {
+    margin: 10px auto;
+  }
+
+  input {
+    border-radius: 10px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: transparent;
+    color: white;
+    /* width: 100%; */
+    /* margin: 10px; */
+  }
+
+  label {
+    font-size: 14px;
   }
 }
 
